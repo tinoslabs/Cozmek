@@ -1,0 +1,128 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+
+        <section class="page-header">
+            <div class="container">
+                <div class="page-header__content">
+                    <ul class="eduhive-breadcrumb list-unstyled">
+                        <li><span class="eduhive-breadcrumb__icon"><i class="icon-home"></i></span><a href="{% url 'index' %}">Home</a></li>
+                        <li><span>Our instructors</span></li>
+                    </ul><!-- /.eduhive-breadcrumb list-unstyled -->
+                    <h2 class="page-header__title">instructors Carousel 02</h2>
+                </div><!-- /.page-header__content -->
+            </div><!-- /.container -->
+            <img src="{% static 'assets/images/shapes/page-header-shape-1.png' %}" alt="shape" class="page-header__shape-one">
+            <img src="{% static 'assets/images/shapes/page-header-shape-2.png' %}" alt="shape" class="page-header__shape-two">
+            <div class="page-header__shape-three"></div><!-- /.page-header__shape-three -->
+            <div class="page-header__shape-four"></div><!-- /.page-header__shape-four -->
+        </section><!-- /.page-header -->
+
+        <section class="instructors-page section-space">
+            <div class="container">
+                <div class="instructors-page__carousel eduhive-owl__carousel eduhive-owl__carousel--basic-nav owl-carousel owl-theme" data-owl-options='{
+			"items": 1,
+			"margin": 10,
+			"loop": true,
+			"smartSpeed": 700,
+			"nav": false,
+			"dots": true,
+			"navText": ["<span class=\"icon-arrow-left\"></span>","<span class=\"icon-arrow-right\"></span>"],
+			"autoplay": true,
+			"responsive": {
+				"0": {
+					"items": 1,
+					"nav": true,
+					"dots": false,
+					"margin": 10
+				},
+				"768": {
+					"items": 2,
+					"margin": 30
+				},
+				"992": {
+					"items": 3,
+					"margin": 30
+				}
+			}
+		}'>
+                    
+                    <div class="item">
+                        <div class="instructor-card-two wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='200ms'>
+                            <div class="instructor-card-two__image">
+                                <img src="{% static 'assets/images/instructor-1-2.jpg' %}" alt="david cooper">
+                            </div><!-- /.instructor-card-two__image -->
+                            <div class="instructor-card-two__content">
+                                <div class="instructor-card-two__info">
+                                    <h3 class="instructor-card-two__name">
+                                        <a href="instructor-details.html">david cooper</a>
+                                    </h3><!-- /.instructor-card-two__name -->
+                                    <h6 class="instructor-card-two__designation">software engineer</h6><!-- /.instructor-card-two__designation -->
+                                </div><!-- /.instructor-card-two__info -->
+                                <div class="instructor-card-two__social">
+                                    <a href="https://facebook.com">
+                                        <span class="instructor-card-two__social__icon">
+                                            <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                                        </span>
+                                        <span class="sr-only">Facebook</span>
+                                    </a>
+                                    <a href="https://facebook.com">
+                                        <span class="instructor-card-two__social__icon">
+                                            <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                                        </span>
+                                        <span class="sr-only">Linkedin</span>
+                                    </a>
+                                    <a href="https://instagram.com">
+                                        <span class="instructor-card-two__social__icon">
+                                            <i class="fab fa-instagram" aria-hidden="true"></i>
+                                        </span>
+                                        <span class="sr-only">Instagram</span>
+                                    </a>
+                                </div><!-- /.instructor-card-two__social -->
+                            </div><!-- /.instructor-card-two__content -->
+                        </div><!-- /.instructor-card-two -->
+                    </div><!-- /.item -->
+                    <div class="item">
+                        <div class="instructor-card-two wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='00ms'>
+                            <div class="instructor-card-two__image">
+                                <img src="{% static 'assets/images/instructor-1-5.jpg' %}" alt="kevin martin">
+                            </div><!-- /.instructor-card-two__image -->
+                            <div class="instructor-card-two__content">
+                                <div class="instructor-card-two__info">
+                                    <h3 class="instructor-card-two__name">
+                                        <a href="instructor-details.html">kevin martin</a>
+                                    </h3><!-- /.instructor-card-two__name -->
+                                    <h6 class="instructor-card-two__designation">App Developer</h6><!-- /.instructor-card-two__designation -->
+                                </div><!-- /.instructor-card-two__info -->
+                                <div class="instructor-card-two__social">
+                                    <a href="https://facebook.com">
+                                        <span class="instructor-card-two__social__icon">
+                                            <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                                        </span>
+                                        <span class="sr-only">Facebook</span>
+                                    </a>
+                                    <a href="https://facebook.com">
+                                        <span class="instructor-card-two__social__icon">
+                                            <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                                        </span>
+                                        <span class="sr-only">Linkedin</span>
+                                    </a>
+                                    <a href="https://instagram.com">
+                                        <span class="instructor-card-two__social__icon">
+                                            <i class="fab fa-instagram" aria-hidden="true"></i>
+                                        </span>
+                                        <span class="sr-only">Instagram</span>
+                                    </a>
+                                </div><!-- /.instructor-card-two__social -->
+                            </div><!-- /.instructor-card-two__content -->
+                        </div><!-- /.instructor-card-two -->
+                    </div><!-- /.item -->
+                    
+                    
+                </div><!-- /.instructors-page__carousel -->
+            </div><!-- /.container -->
+        </section><!-- /.instructors-page section-space -->
+
+          {% endblock %}
