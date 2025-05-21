@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cozmek</title>
     <!-- favicons Icons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'assets/images/Logo_Cozmek.png' %}" />
-    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'assets/images/Logo_Cozmek.png' %}" />
-    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'assets/images/Logo_Cozmek.png' %}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'assets/images/logo-1.png' %}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'assets/images/logo-1.png' %}" />
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'assets/images/logo-1.png' %}" />
     <link rel="manifest" href="{% static 'assets/images/favicons/site.webmanifest' %}" />
     <meta name="description" content="Eduhive is a very modern and versatile education & online courses HTML Template. It is specially designed for LMS, online courses, education, learning management, e-learning, online training, zoom classes, and all other education related websites and businesses." />
 
@@ -34,6 +34,8 @@
     <!-- template styles -->
     <link rel="stylesheet" href="{% static 'assets/css/eduhive.css' %}" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    
 </head>
 
 <body class="custom-cursor">
@@ -42,7 +44,7 @@
     <div class="custom-cursor__cursor-two"></div>
 
     <div class="preloader">
-        <div class="preloader__image" style="background-image: url(static/assets/images/loader.png);"></div>
+        <div class="preloader__image" style="background-image: url(static/assets/images/logo-1.png);"></div>
     </div>
     <!-- /.preloader -->
     <div class="page-wrapper">
@@ -55,7 +57,7 @@
                                 <span class="topbar__info__icon topbar__info__icon--email">
                                     <i class="icon-email"></i>
                                 </span>
-                                <a href="mailto:needhelp@company.com"> cozmekinfo@gmail.com</a>
+                                <a href="mailto:cozmekinfo@gmail.com"> cozmekinfo@gmail.com</a>
                             </li>
                             
 
@@ -63,29 +65,29 @@
                                 <span class="topbar__info__icon">
                                     <i class="icon-telephone"></i>
                                 </span>
-                                <a href="tel:+6120320024">+917510747180</a>
+                                <a href="tel:+7510747180">+917510747180</a>
                             </li>
                             <li>
                                 <span class="topbar__info__icon">
                                     <i class="icon-location"></i>
                                 </span>
-                                <a href="https://www.google.com/maps">Kothamangalam, Ernakulam - 686673</a>
+                                <a href="">Kothamangalam, Ernakulam - 686673</a>
                             </li>
                         </ul><!-- /.list-unstyled topbar__info -->
                         <div class="topbar__social social-links">
-                            <a href="https://facebook.com">
+                            <a href="">
                                 <i class="fab fa-facebook-f" aria-hidden="true"></i>
                                 <span class="sr-only">Facebook</span>
                             </a>
-                            <a href="https://twitter.com">
+                            <a href="">
                                 <i class="icon-twitter" aria-hidden="true"></i>
                                 <span class="sr-only">Twitter</span>
                             </a>
-                            <a href="https://linkedin.com">
+                            <a href="">
                                 <i class="fab fa-linkedin-in" aria-hidden="true"></i>
                                 <span class="sr-only">Linkedin</span>
                             </a>
-                            <a href="https://youtube.com">
+                            <a href="">
                                 <i class="fab fa-youtube" aria-hidden="true"></i>
                                 <span class="sr-only">Youtube</span>
                             </a>
@@ -111,13 +113,14 @@
                                     
                                     </li>
 
-
                                     <li>
                                         <a href="{% url 'about' %}">About Us</a>
                                     </li>
+
                                     <li>
                                         <a href="{% url 'instructors' %}">Instructors</a>                                        
                                     </li>
+
                                     <li>
                                         <a href="{% url 'courses' %}">courses</a>
                                     </li>
@@ -125,31 +128,125 @@
                                     <li class="dropdown">
                                         <a href="{% url 'blog' %}">Blog</a>
                                     </li>
+
                                     <li>
                                         <a href="{% url 'contact' %}">Contact</a>
                                     </li>
                                 </ul>
                             </nav><!-- /.main-header__nav -->
+
                             <div class="mobile-nav__btn mobile-nav__toggler">
                                 <span></span>
                                 <span></span>
                                 <span></span>
                             </div><!-- /.mobile-nav__toggler -->
-                            <a href="#" class="search-toggler main-header__search">
-                                <i class="icon-search" aria-hidden="true"></i>
-                                <span class="sr-only">Search</span>
-                            </a><!-- /.search-toggler -->
+
+                            
+
                             <a href="{% url 'contact' %}" class="main-header__btn eduhive-btn eduhive-btn--border">
                                 <span>Apply now</span>
                                 <span class="eduhive-btn__icon">
                                     <span class="eduhive-btn__icon__inner"><i class="icon-right-arrow"></i></span>
                                 </span>
                             </a><!-- /.main-header__btn eduhive-btn -->
+
                         </div><!-- /.main-header__right -->
                     </div><!-- /.main-header__inner -->
                 </div><!-- /.container-fluid -->
             </header><!-- /.main-header -->
         </div><!-- /.home-main-header -->
+
+        
+        
+       
+
+
+        {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+        {% endif %}
+
+<!-- Newsletter Modal -->
+<div class="modal fade" id="newsletterModal" tabindex="-1" aria-labelledby="newsletterLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable" style="max-height: 100vh;">
+    <div class="modal-content d-flex flex-column flex-lg-row" style="max-height: 90vh; overflow-y: auto;">
+
+      <!-- Left: Image -->
+      <div class="col-lg-6 d-none d-lg-block">
+        <img src="{% static 'assets/images/main-slider-1-1.jpg' %}" alt="Newsletter" class="img-fluid h-100 w-100" style="object-fit: cover;">
+      </div>
+
+      <!-- Right: Form -->
+      <div class="col-lg-6 p-4 d-flex flex-column justify-content-center">
+        <div class="modal-header border-0">
+          <h2 class="modal-title fs-3 fw-bold" id="newsletterLabel">Our Special Offer</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body" style="max-height: 70vh; overflow-y: auto;">
+          <p>Mastering the Future ,AI Pioneering Excellence</p>
+
+          <form method="POST" action="">
+            {% csrf_token %}
+
+            <div class="mb-3">
+              <label for="name" class="form-label">Full Name</label>
+              <input type="text" class="form-control" name="name" id="name" placeholder="Your full name" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="email" class="form-label">Email Address</label>
+              <input type="email" class="form-control" name="email" id="email" placeholder="Your email address" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="phone" class="form-label">Phone Number</label>
+              <input type="tel" class="form-control" name="phone" id="phone" placeholder="Your phone number" required pattern="[0-9]{10}" maxlength="10">
+            </div>
+
+            <button type="submit" class="btn btn-danger w-100">Submit</button>
+          </form>
+
+          <p class="text-muted mt-3">Do not worry, we don’t spam!</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+       <style>
+  body.modal-open {
+    overflow: auto !important;
+    padding-right: 0 !important;
+  }
+</style>
+
+{% comment %} <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const modalShown = sessionStorage.getItem('newsletterModalShown');
+    if (!modalShown) {
+      var myModal = new bootstrap.Modal(document.getElementById('newsletterModal'));
+      myModal.show();
+      sessionStorage.setItem('newsletterModalShown', 'true');
+    }
+  });
+</script> {% endcomment %}
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var myModal = new bootstrap.Modal(document.getElementById('newsletterModal'));
+    myModal.show();
+  });
+</script>
+
 
         <section class="main-slider-one" id="home">
             <div class="main-slider-one__carousel eduhive-owl__carousel eduhive-owl__carousel--basic-nav owl-carousel owl-theme" data-owl-options='{
@@ -179,13 +276,13 @@
                                         <p class="main-slider-one__text">There Are Many Variations Of Passages Of Lorem Ipsum Available, But The Majority Have Suffered Alteration In Some.</p><!-- /.text -->
                                     </div><!-- /.description -->
                                     <div class="main-slider-one__button">
-                                        <a href="courses.html" class="main-slider-one__btn-1 eduhive-btn">
+                                        <a href="{% url 'courses' %}" class="main-slider-one__btn-1 eduhive-btn">
                                             <span>find course</span>
                                             <span class="eduhive-btn__icon">
                                                 <span class="eduhive-btn__icon__inner"><i class="icon-right-arrow"></i></span>
                                             </span>
                                         </a><!-- /.eduhive-btn -->
-                                        <a href="about.html" class="main-slider-one__btn-2 eduhive-btn eduhive-btn--border">
+                                        <a href="{% url 'about' %}" class="main-slider-one__btn-2 eduhive-btn eduhive-btn--border">
                                             <span>About us</span>
                                             <span class="eduhive-btn__icon">
                                                 <span class="eduhive-btn__icon__inner"><i class="icon-right-arrow"></i></span>
@@ -222,9 +319,9 @@
                                             <img src="{% static 'assets/images/main-slider-1-3.jpg' %}" alt="slider image" class="slider-image">
                                         </div><!-- /.main-slider-one__image__three -->
                                     </div><!-- /.main-slider-one__image__right -->
-                                    <img src="{% static 'assets/images/main-slider-shape-1-3.png' %}" alt="shape" class="main-slider-one__image__shape-one slider-image">
-                                    <img src="{% static 'assets/images/main-slider-shape-1-4.png' %}" alt="shape" class="main-slider-one__image__shape-two slider-image">
-                                    <img src="{% static 'assets/images/main-slider-shape-1-5.png' %}" alt="shape" class="main-slider-one__image__shape-three slider-image">
+                                    <img src="{% static 'assets/images/shapes/main-slider-shape-1-3.png' %}" alt="shape" class="main-slider-one__image__shape-one slider-image">
+                                    <img src="{% static 'assets/images/shapes/main-slider-shape-1-4.png' %}" alt="shape" class="main-slider-one__image__shape-two slider-image">
+                                    <img src="{% static 'assets/images/shapes/main-slider-shape-1-5.png' %}" alt="shape" class="main-slider-one__image__shape-three slider-image">
                                     <div class="main-slider-one__image__shape-four"></div><!-- /.main-slider-one__image__shape -->
                                 </div><!-- /.main-slider-one__image -->
                             </div><!-- /.main-slider-one__col-image -->
@@ -250,13 +347,13 @@
                                         <p class="main-slider-one__text">Who's Responsible For The Ask For This Request? My Supervisor Didn't Like The Latest Revision You Gave Me Can You Switch Back.</p><!-- /.text -->
                                     </div><!-- /.description -->
                                     <div class="main-slider-one__button">
-                                        <a href="courses.html" class="main-slider-one__btn-1 eduhive-btn">
+                                        <a href="{% url 'courses' %}" class="main-slider-one__btn-1 eduhive-btn">
                                             <span>find course</span>
                                             <span class="eduhive-btn__icon">
                                                 <span class="eduhive-btn__icon__inner"><i class="icon-right-arrow"></i></span>
                                             </span>
                                         </a><!-- /.eduhive-btn -->
-                                        <a href="about.html" class="main-slider-one__btn-2 eduhive-btn eduhive-btn--border">
+                                        <a href="{% url 'about' %}" class="main-slider-one__btn-2 eduhive-btn eduhive-btn--border">
                                             <span>About us</span>
                                             <span class="eduhive-btn__icon">
                                                 <span class="eduhive-btn__icon__inner"><i class="icon-right-arrow"></i></span>
@@ -274,10 +371,7 @@
                                             </div><!-- /.main-slider-one__image__one__inner -->
                                             <div class="total-student">
                                                 <div class="total-student__inner">
-                                                    {% comment %} <div class="total-student__image">
-                                                        <img src="{% static 'assets/images/main-slider-student-1-1.png' %}" alt="student" class="slider-image">
-                                                        <img src="{% static 'assets/images/main-slider-student-1-2.png' %}" alt="student" class="slider-image">
-                                                    </div> {% endcomment %}
+                                                    
                                                     <h4 class="total-student__text count-box">
                                                         <span class="count-text" data-stop="200" data-speed="1500">0</span><span>k+ <br> Students</span>
                                                     </h4><!-- /.total-student__text -->
@@ -287,15 +381,15 @@
                                     </div><!-- /.main-slider-one__image__left -->
                                     <div class="main-slider-one__image__right">
                                         <div class="main-slider-one__image__two">
-                                            <img src="{% static 'assets/images/main-slider/main-slider-1-5.jpg' %}" alt="slider image" class="slider-image">
+                                            <img src="{% static 'assets/images/main-slider-1-2.jpg' %}" alt="slider image" class="slider-image">
                                         </div><!-- /.main-slider-one__image__two -->
                                         <div class="main-slider-one__image__three">
-                                            <img src="{% static 'assets/images/main-slider/main-slider-1-6.jpg' %}" alt="slider image" class="slider-image">
+                                            <img src="{% static 'assets/images/main-slider-1-3.jpg' %}" alt="slider image" class="slider-image">
                                         </div><!-- /.main-slider-one__image__three -->
                                     </div><!-- /.main-slider-one__image__right -->
-                                    <img src="{% static 'assets/images/main-slider-shape-1-3.png' %}" alt="shape" class="main-slider-one__image__shape-one slider-image">
-                                    <img src="{% static 'assets/images/main-slider-shape-1-4.png' %}" alt="shape" class="main-slider-one__image__shape-two slider-image">
-                                    <img src="{% static 'assets/images/main-slider-shape-1-5.png' %}" alt="shape" class="main-slider-one__image__shape-three slider-image">
+                                    <img src="{% static 'assets/images/shapes/main-slider-shape-1-3.png' %}" alt="shape" class="main-slider-one__image__shape-one slider-image">
+                                    <img src="{% static 'assets/images/shapes/main-slider-shape-1-4.png' %}" alt="shape" class="main-slider-one__image__shape-two slider-image">
+                                    <img src="{% static 'assets/images/shapes/main-slider-shape-1-5.png' %}" alt="shape" class="main-slider-one__image__shape-three slider-image">
                                     <div class="main-slider-one__image__shape-four"></div><!-- /.main-slider-one__image__shape -->
                                 </div><!-- /.main-slider-one__image -->
                             </div><!-- /.main-slider-one__col-image -->
@@ -477,7 +571,7 @@
                                 <h3 class="sec-title__title">Mastering the Future <br> <span class="sec-title__title__shape">AI Pioneering </span> <span class="sec-title__title__text">Excellence</span></h3><!-- /.sec-title__title -->
                             </div><!-- /.sec-title -->
                             <div class="about-one__description wow fadeInUp" data-wow-duration="1500ms">
-                                <p class="about-one__text">Through cutting-edge programs and the guidance of seasoned experts, we empower individuals of all generations, unlocking their full potential in an ever-evolving world.</p><!-- /.about-one__text -->
+                                <p class="about-one__text">Cozmek serves as your gateway to a realm of transformative education, aiming to revolutionize the learning experience by providing a diverse range of courses that empower individuals of all age groups. Embrace the transformative force of education and unleash your maximum potential with Cozmek.</p><!-- /.about-one__text -->
                             </div><!-- /.about-one__description -->
                             <div class="about-one__inner wow fadeInUp" data-wow-duration="1500ms">
                                 <ul class="about-one__info list-unstyled">
@@ -518,382 +612,129 @@
             </div><!-- /.container -->
             <div class="courses-one__container container">
                 <div class="courses-one__carousel eduhive-owl__carousel--with-shadow eduhive-owl__carousel eduhive-owl__carousel--basic-nav owl-carousel owl-theme" data-owl-options='{
-			"items": 1,
-			"margin": 10,
-			"loop": true,
-			"smartSpeed": 700,
-            "rtl": true,
-			"nav": true,
-			"dots": false,
-			"navText": ["<span class=\"icon-arrow-left\"></span>","<span class=\"icon-arrow-right\"></span>"],
-			"autoplay": true,
-			"responsive": {
-				"0": {
-					"items": 1,
-					"margin": 10
-				},
-				"768": {
-					"items": 2,
-					"margin": 30
-				},
-				"992": {
-					"items": 3,
-					"margin": 30
-				},
-				"1200": {
-					"items": 3.3,
-					"margin": 30
-				},
-				"1400": {
-					"items": 3.4,
-					"margin": 30
-				},
-				"1536": {
-					"items": 3.5,
-					"margin": 30
-				},
-				"1600": {
-					"items": 3.7,
-					"margin": 30
-				},
-				"1800": {
-					"items": 3.94,
-					"margin": 30
-				}
-			}
-		}'>
+                        "items": 1,
+                        "margin": 10,
+                        "loop": true,
+                        "smartSpeed": 700,
+                        "rtl": true,
+                        "nav": true,
+                        "dots": false,
+                        "navText": ["<span class=\"icon-arrow-left\"></span>","<span class=\"icon-arrow-right\"></span>"],
+                        "autoplay": true,
+                        "responsive": {
+                            "0": {
+                                "items": 1,
+                                "margin": 10
+                            },
+                            "768": {
+                                "items": 2,
+                                "margin": 30
+                            },
+                            "992": {
+                                "items": 3,
+                                "margin": 30
+                            },
+                            "1200": {
+                                "items": 3.3,
+                                "margin": 30
+                            },
+                            "1400": {
+                                "items": 3.4,
+                                "margin": 30
+                            },
+                            "1536": {
+                                "items": 3.5,
+                                "margin": 30
+                            },
+                            "1600": {
+                                "items": 3.7,
+                                "margin": 30
+                            },
+                            "1800": {
+                                "items": 3.94,
+                                "margin": 30
+                            }
+                        }
+                    }'>
+                    {% for c in course %}
                     <div class="item">
-                        <div class="course-card wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='00ms'>
+                        <div class="course-card wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="00ms">
                             <div class="course-card__image">
-                                <img src="{% static 'assets/images/course-1-1.jpg' %}" alt="WordPress for Everyone: Unlock Your Creativity Online">
+                                <img src="{{ c.image.url }}" alt="{{ c.course_name }}">
                                 <div class="course-card__ratings">
                                     <div class="eduhive-ratings">
-                                        <span class="eduhive-ratings__icon">
-                                            <i class="fa fa-star"></i>
-                                        </span><!-- /.eduhive-ratings__icon -->
-                                        <span class="eduhive-ratings__icon">
-                                            <i class="fa fa-star"></i>
-                                        </span><!-- /.eduhive-ratings__icon -->
-                                        <span class="eduhive-ratings__icon">
-                                            <i class="fa fa-star"></i>
-                                        </span><!-- /.eduhive-ratings__icon -->
-                                        <span class="eduhive-ratings__icon">
-                                            <i class="fa fa-star"></i>
-                                        </span><!-- /.eduhive-ratings__icon -->
-                                        <span class="eduhive-ratings__icon">
-                                            <i class="fa fa-star"></i>
-                                        </span><!-- /.eduhive-ratings__icon -->
-                                    </div><!-- /.product-ratings -->
-                                    <p class="course-card__ratings__text">5 Ratings</p><!-- /.course-card__ratings__text -->
-                                </div><!-- /.course-card__ratings -->
-                            </div><!-- /.course-card__image -->
+                                        {% for i in "12345"|slice:":c.rating" %}
+                                        <span class="eduhive-ratings__icon"><i class="fa fa-star"></i></span>
+                                        {% endfor %}
+                                    </div>
+                                    <p class="course-card__ratings__text">{{ c.rating }} Ratings</p>
+                                </div>
+                            </div>
                             <div class="course-card__content">
                                 <div class="course-card__content__top">
-                                    <div class="course-card__category">Experts</div><!-- /.course-card__category -->
+                                    <div class="course-card__category">{{ c.level|default:"Expert" }}</div>
                                     <div class="course-card__duration">
-                                        <span class="course-card__duration__icon">
-                                            <i class="icon-clock"></i>
-                                        </span><!-- /.course-card__duration__icon -->
-                                        25 weeks
-                                    </div><!-- /.course-card__duration -->
-                                </div><!-- /.course-card__content__top -->
-                                <h3 class="course-card__title"><a href="{% url 'courses_details' %}">Artificial Inteligence and Mechine Learning</a></h3><!-- /.course-card__title -->
+                                        <span class="course-card__duration__icon"><i class="icon-clock"></i></span>
+                                        {{ c.duration_months|default:"N/A" }} months
+                                    </div>
+                                </div>
+                                <h3 class="course-card__title"><a href="{% url 'course_details' c.id %}">{{ c.course_name }}</a></h3>
                                 <div class="course-card__info">
                                     <div class="course-card__lessons">
-                                        <span class="course-card__lessons__icon">
-                                            <i class="icon-open-book"></i>
-                                        </span><!-- /.course-card__lessons__icon -->
-                                        25 lessons
-                                    </div><!-- /.course-card__lessons -->
+                                        <span class="course-card__lessons__icon"><i class="icon-open-book"></i></span>
+                                        {{ c.lessons|default:"0" }} lessons
+                                    </div>
                                     <div class="course-card__students">
-                                        <span class="course-card__students__icon">
-                                            <i class="icon-multiple-users-silhouette"></i>
-                                        </span><!-- /.course-card__lessons__icon -->
-                                        350 Students
-                                    </div><!-- /.course-card__students -->
-                                </div><!-- /.course-card__info -->
-                                <h4 class="course-card__price">$<span>69.00</span></h4><!-- /.course-card__price -->
-                            </div><!-- /.course-card__content -->
-                            <div class="course-card__hover" style="background-image: url(assets/images/shapes/course-card-bg-1-1.png);">
+                                        <span class="course-card__students__icon"><i class="icon-multiple-users-silhouette"></i></span>
+                                        {{ c.student_count|default:"0" }} Students
+                                    </div>
+                                </div>
+                                <h4 class="course-card__price">₹<span>{{ c.course_fee|default:"0.00" }}</span></h4>
+                            </div>
+                            <div class="course-card__hover" style="background-image: url({% static 'assets/images/shapes/course-card-bg-1-1.png' %});">
                                 <div class="course-card__hover__content">
                                     <div class="course-card__content__top course-card__content__top--hover">
-                                        <div class="course-card__category">Experts</div><!-- /.course-card__category -->
+                                        <div class="course-card__category">{{ c.level|default:"Expert" }}</div>
                                         <div class="course-card__duration">
-                                            <span class="course-card__duration__icon">
-                                                <i class="icon-clock"></i>
-                                            </span><!-- /.course-card__duration__icon -->
-                                            25 weeks
-                                        </div><!-- /.course-card__duration -->
-                                    </div><!-- /.course-card__content__top -->
-                                    <h3 class="course-card__title course-card__title--hover"><a href="{% url 'courses_details' %}">Artificial Inteligence and Mechine Learning</a></h3><!-- /.course-card__title -->
-                                    <p class="course-card__text">Viverra ipsum nunc aliquet bibendum enim facilisis gravida. Diam phasellus vestibulum lorem sed risus</p><!-- /.course-card__text -->
+                                            <span class="course-card__duration__icon"><i class="icon-clock"></i></span>
+                                            {{ c.duration_months|default:"N/A" }} months
+                                        </div>
+                                    </div>
+                                    <h3 class="course-card__title course-card__title--hover">
+                                        <a href="{% url 'course_details' c.id %}">{{ c.course_name }}</a>
+                                    </h3>
+                                    <p class="course-card__text">{{ c.coaching_details|safe|truncatewords:20 }}</p>
                                     <div class="course-card__ratings course-card__ratings--hover">
                                         <div class="eduhive-ratings">
-                                            <span class="eduhive-ratings__icon">
-                                                <i class="fa fa-star"></i>
-                                            </span><!-- /.eduhive-ratings__icon -->
-                                            <span class="eduhive-ratings__icon">
-                                                <i class="fa fa-star"></i>
-                                            </span><!-- /.eduhive-ratings__icon -->
-                                            <span class="eduhive-ratings__icon">
-                                                <i class="fa fa-star"></i>
-                                            </span><!-- /.eduhive-ratings__icon -->
-                                            <span class="eduhive-ratings__icon">
-                                                <i class="fa fa-star"></i>
-                                            </span><!-- /.eduhive-ratings__icon -->
-                                            <span class="eduhive-ratings__icon">
-                                                <i class="fa fa-star"></i>
-                                            </span><!-- /.eduhive-ratings__icon -->
-                                        </div><!-- /.product-ratings -->
-                                        <p class="course-card__ratings__text">5 Ratings</p><!-- /.course-card__ratings__text -->
-                                    </div><!-- /.course-card__ratings -->
-                                    <a href="wordpress-development.html" class="course-card__btn eduhive-btn eduhive-btn--border">
-                                        <span>enroll now</span>
+                                            {% for i in "12345"|slice:":c.rating" %}
+                                            <span class="eduhive-ratings__icon"><i class="fa fa-star"></i></span>
+                                            {% endfor %}
+                                        </div>
+                                        <p class="course-card__ratings__text">{{ c.rating }} Ratings</p>
+                                    </div>
+                                    <a href="{% url 'course_details' c.id %}" class="course-card__btn eduhive-btn eduhive-btn--border">
+                                        <span>Enroll Now</span>
                                         <span class="eduhive-btn__icon">
                                             <span class="eduhive-btn__icon__inner"><i class="icon-right-arrow"></i></span>
                                         </span>
-                                    </a><!-- /.course-card__btn eduhive-btn -->
+                                    </a>
                                     <div class="course-card__info course-card__info--hover">
                                         <div class="course-card__lessons">
-                                            <span class="course-card__lessons__icon">
-                                                <i class="icon-open-book"></i>
-                                            </span><!-- /.course-card__lessons__icon -->
-                                            25 lessons
-                                        </div><!-- /.course-card__lessons -->
+                                            <span class="course-card__lessons__icon"><i class="icon-open-book"></i></span>
+                                            {{ c.lessons|default:"0" }} lessons
+                                        </div>
                                         <div class="course-card__students">
-                                            <span class="course-card__students__icon">
-                                                <i class="icon-multiple-users-silhouette"></i>
-                                            </span><!-- /.course-card__lessons__icon -->
-                                            350 Students
-                                        </div><!-- /.course-card__students -->
-                                    </div><!-- /.course-card__info -->
-                                </div><!-- /.course-card__hover__content -->
-                            </div><!-- /.course-card__hover -->
-                        </div><!-- /.course-card -->
-                    </div><!-- /.item -->
-                    <div class="item">
-                        <div class="course-card wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='100ms'>
-                            <div class="course-card__image">
-                                <img src="{% static 'assets/images/course-1-6.jpg' %}" alt="The Data Science Revolution: Upgrading Your Skills">
-                                <div class="course-card__ratings">
-                                    <div class="eduhive-ratings">
-                                        <span class="eduhive-ratings__icon">
-                                            <i class="fa fa-star"></i>
-                                        </span><!-- /.eduhive-ratings__icon -->
-                                        <span class="eduhive-ratings__icon">
-                                            <i class="fa fa-star"></i>
-                                        </span><!-- /.eduhive-ratings__icon -->
-                                        <span class="eduhive-ratings__icon">
-                                            <i class="fa fa-star"></i>
-                                        </span><!-- /.eduhive-ratings__icon -->
-                                        <span class="eduhive-ratings__icon">
-                                            <i class="fa fa-star"></i>
-                                        </span><!-- /.eduhive-ratings__icon -->
-                                        <span class="eduhive-ratings__icon">
-                                            <i class="fa fa-star"></i>
-                                        </span><!-- /.eduhive-ratings__icon -->
-                                    </div><!-- /.product-ratings -->
-                                    <p class="course-card__ratings__text">5 Ratings</p><!-- /.course-card__ratings__text -->
-                                </div><!-- /.course-card__ratings -->
-                            </div><!-- /.course-card__image -->
-                            <div class="course-card__content">
-                                <div class="course-card__content__top">
-                                    <div class="course-card__category">Experts</div><!-- /.course-card__category -->
-                                    <div class="course-card__duration">
-                                        <span class="course-card__duration__icon">
-                                            <i class="icon-clock"></i>
-                                        </span><!-- /.course-card__duration__icon -->
-                                        20 weeks
-                                    </div><!-- /.course-card__duration -->
-                                </div><!-- /.course-card__content__top -->
-                                <h3 class="course-card__title"><a href="data-science.html">Python Full Stack Web Development</a></h3><!-- /.course-card__title -->
-                                <div class="course-card__info">
-                                    <div class="course-card__lessons">
-                                        <span class="course-card__lessons__icon">
-                                            <i class="icon-open-book"></i>
-                                        </span><!-- /.course-card__lessons__icon -->
-                                        20 lessons
-                                    </div><!-- /.course-card__lessons -->
-                                    <div class="course-card__students">
-                                        <span class="course-card__students__icon">
-                                            <i class="icon-multiple-users-silhouette"></i>
-                                        </span><!-- /.course-card__lessons__icon -->
-                                        300 Students
-                                    </div><!-- /.course-card__students -->
-                                </div><!-- /.course-card__info -->
-                                <h4 class="course-card__price">$<span>50.00</span></h4><!-- /.course-card__price -->
-                            </div><!-- /.course-card__content -->
-                            <div class="course-card__hover" style="background-image: url(assets/images/shapes/course-card-bg-1-1.png);">
-                                <div class="course-card__hover__content">
-                                    <div class="course-card__content__top course-card__content__top--hover">
-                                        <div class="course-card__category">Experts</div><!-- /.course-card__category -->
-                                        <div class="course-card__duration">
-                                            <span class="course-card__duration__icon">
-                                                <i class="icon-clock"></i>
-                                            </span><!-- /.course-card__duration__icon -->
-                                            20 weeks
-                                        </div><!-- /.course-card__duration -->
-                                    </div><!-- /.course-card__content__top -->
-                                    <h3 class="course-card__title course-card__title--hover"><a href="data-science.html">Python Full Stack web Development</a></h3><!-- /.course-card__title -->
-                                    <p class="course-card__text">We need to dialog around your choice of work attire we need more paper back of the net quick win yet today</p><!-- /.course-card__text -->
-                                    <div class="course-card__ratings course-card__ratings--hover">
-                                        <div class="eduhive-ratings">
-                                            <span class="eduhive-ratings__icon">
-                                                <i class="fa fa-star"></i>
-                                            </span><!-- /.eduhive-ratings__icon -->
-                                            <span class="eduhive-ratings__icon">
-                                                <i class="fa fa-star"></i>
-                                            </span><!-- /.eduhive-ratings__icon -->
-                                            <span class="eduhive-ratings__icon">
-                                                <i class="fa fa-star"></i>
-                                            </span><!-- /.eduhive-ratings__icon -->
-                                            <span class="eduhive-ratings__icon">
-                                                <i class="fa fa-star"></i>
-                                            </span><!-- /.eduhive-ratings__icon -->
-                                            <span class="eduhive-ratings__icon">
-                                                <i class="fa fa-star"></i>
-                                            </span><!-- /.eduhive-ratings__icon -->
-                                        </div><!-- /.product-ratings -->
-                                        <p class="course-card__ratings__text">5 Ratings</p><!-- /.course-card__ratings__text -->
-                                    </div><!-- /.course-card__ratings -->
-                                    <a href="data-science.html" class="course-card__btn eduhive-btn eduhive-btn--border">
-                                        <span>enroll now</span>
-                                        <span class="eduhive-btn__icon">
-                                            <span class="eduhive-btn__icon__inner"><i class="icon-right-arrow"></i></span>
-                                        </span>
-                                    </a><!-- /.course-card__btn eduhive-btn -->
-                                    <div class="course-card__info course-card__info--hover">
-                                        <div class="course-card__lessons">
-                                            <span class="course-card__lessons__icon">
-                                                <i class="icon-open-book"></i>
-                                            </span><!-- /.course-card__lessons__icon -->
-                                            20 lessons
-                                        </div><!-- /.course-card__lessons -->
-                                        <div class="course-card__students">
-                                            <span class="course-card__students__icon">
-                                                <i class="icon-multiple-users-silhouette"></i>
-                                            </span><!-- /.course-card__lessons__icon -->
-                                            300 Students
-                                        </div><!-- /.course-card__students -->
-                                    </div><!-- /.course-card__info -->
-                                </div><!-- /.course-card__hover__content -->
-                            </div><!-- /.course-card__hover -->
-                        </div><!-- /.course-card -->
-                    </div><!-- /.item -->
-                    
-                    
-                    <div class="item">
-                        <div class="course-card wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='100ms'>
-                            <div class="course-card__image">
-                                <img src="{% static 'assets/images/course-1-9.jpg' %}" alt="advanced Mastering graphics Design Fundamentals course">
-                                <div class="course-card__ratings">
-                                    <div class="eduhive-ratings">
-                                        <span class="eduhive-ratings__icon">
-                                            <i class="fa fa-star"></i>
-                                        </span><!-- /.eduhive-ratings__icon -->
-                                        <span class="eduhive-ratings__icon">
-                                            <i class="fa fa-star"></i>
-                                        </span><!-- /.eduhive-ratings__icon -->
-                                        <span class="eduhive-ratings__icon">
-                                            <i class="fa fa-star"></i>
-                                        </span><!-- /.eduhive-ratings__icon -->
-                                        <span class="eduhive-ratings__icon">
-                                            <i class="fa fa-star"></i>
-                                        </span><!-- /.eduhive-ratings__icon -->
-                                        <span class="eduhive-ratings__icon">
-                                            <i class="fa fa-star"></i>
-                                        </span><!-- /.eduhive-ratings__icon -->
-                                    </div><!-- /.product-ratings -->
-                                    <p class="course-card__ratings__text">5 Ratings</p><!-- /.course-card__ratings__text -->
-                                </div><!-- /.course-card__ratings -->
-                            </div><!-- /.course-card__image -->
-                            <div class="course-card__content">
-                                <div class="course-card__content__top">
-                                    <div class="course-card__category">Experts</div><!-- /.course-card__category -->
-                                    <div class="course-card__duration">
-                                        <span class="course-card__duration__icon">
-                                            <i class="icon-clock"></i>
-                                        </span><!-- /.course-card__duration__icon -->
-                                        35 weeks
-                                    </div><!-- /.course-card__duration -->
-                                </div><!-- /.course-card__content__top -->
-                                <h3 class="course-card__title"><a href="graphics-design.html">advanced Mastering graphics Design Fundamentals course</a></h3><!-- /.course-card__title -->
-                                <div class="course-card__info">
-                                    <div class="course-card__lessons">
-                                        <span class="course-card__lessons__icon">
-                                            <i class="icon-open-book"></i>
-                                        </span><!-- /.course-card__lessons__icon -->
-                                        15 lessons
-                                    </div><!-- /.course-card__lessons -->
-                                    <div class="course-card__students">
-                                        <span class="course-card__students__icon">
-                                            <i class="icon-multiple-users-silhouette"></i>
-                                        </span><!-- /.course-card__lessons__icon -->
-                                        250 Students
-                                    </div><!-- /.course-card__students -->
-                                </div><!-- /.course-card__info -->
-                                <h4 class="course-card__price">$<span>85.00</span></h4><!-- /.course-card__price -->
-                            </div><!-- /.course-card__content -->
-                            <div class="course-card__hover" style="background-image: url(assets/images/shapes/course-card-bg-1-1.png);">
-                                <div class="course-card__hover__content">
-                                    <div class="course-card__content__top course-card__content__top--hover">
-                                        <div class="course-card__category">Experts</div><!-- /.course-card__category -->
-                                        <div class="course-card__duration">
-                                            <span class="course-card__duration__icon">
-                                                <i class="icon-clock"></i>
-                                            </span><!-- /.course-card__duration__icon -->
-                                            35 weeks
-                                        </div><!-- /.course-card__duration -->
-                                    </div><!-- /.course-card__content__top -->
-                                    <h3 class="course-card__title course-card__title--hover"><a href="graphics-design.html">advanced Mastering graphics Design Fundamentals course</a></h3><!-- /.course-card__title -->
-                                    <p class="course-card__text">The flagpole bazooka that run it past the boss jump right in and banzai attack will they won't they its all greek</p><!-- /.course-card__text -->
-                                    <div class="course-card__ratings course-card__ratings--hover">
-                                        <div class="eduhive-ratings">
-                                            <span class="eduhive-ratings__icon">
-                                                <i class="fa fa-star"></i>
-                                            </span><!-- /.eduhive-ratings__icon -->
-                                            <span class="eduhive-ratings__icon">
-                                                <i class="fa fa-star"></i>
-                                            </span><!-- /.eduhive-ratings__icon -->
-                                            <span class="eduhive-ratings__icon">
-                                                <i class="fa fa-star"></i>
-                                            </span><!-- /.eduhive-ratings__icon -->
-                                            <span class="eduhive-ratings__icon">
-                                                <i class="fa fa-star"></i>
-                                            </span><!-- /.eduhive-ratings__icon -->
-                                            <span class="eduhive-ratings__icon">
-                                                <i class="fa fa-star"></i>
-                                            </span><!-- /.eduhive-ratings__icon -->
-                                        </div><!-- /.product-ratings -->
-                                        <p class="course-card__ratings__text">5 Ratings</p><!-- /.course-card__ratings__text -->
-                                    </div><!-- /.course-card__ratings -->
-                                    <a href="graphics-design.html" class="course-card__btn eduhive-btn eduhive-btn--border">
-                                        <span>enroll now</span>
-                                        <span class="eduhive-btn__icon">
-                                            <span class="eduhive-btn__icon__inner"><i class="icon-right-arrow"></i></span>
-                                        </span>
-                                    </a><!-- /.course-card__btn eduhive-btn -->
-                                    <div class="course-card__info course-card__info--hover">
-                                        <div class="course-card__lessons">
-                                            <span class="course-card__lessons__icon">
-                                                <i class="icon-open-book"></i>
-                                            </span><!-- /.course-card__lessons__icon -->
-                                            15 lessons
-                                        </div><!-- /.course-card__lessons -->
-                                        <div class="course-card__students">
-                                            <span class="course-card__students__icon">
-                                                <i class="icon-multiple-users-silhouette"></i>
-                                            </span><!-- /.course-card__lessons__icon -->
-                                            250 Students
-                                        </div><!-- /.course-card__students -->
-                                    </div><!-- /.course-card__info -->
-                                </div><!-- /.course-card__hover__content -->
-                            </div><!-- /.course-card__hover -->
-                        </div><!-- /.course-card -->
-                    </div><!-- /.item -->
-                    
-                    
-                   
+                                            <span class="course-card__students__icon"><i class="icon-multiple-users-silhouette"></i></span>
+                                            {{ c.student_count|default:"0" }} Students
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                       
                 </div><!-- /.courses-one__carousel -->
             </div><!-- /.courses-one__container container -->
             <img src="{% static 'assets/images/shapes/courses-shape-1-1.png' %}" alt="shape" class="courses-one__shape">
@@ -962,40 +803,40 @@
                                 <div class="eduhive-accordion" data-grp-name="eduhive-accordion">
                                     <div class="accordion wow fadeInUp" data-wow-duration="1500ms">
                                         <div class="accordion-title">
-                                            <h4>How long should a business plan be?</h4>
+                                            <h4>Online and Offline Sessions?</h4>
                                             <span class="accordion-title__icon">
                                                 <i class="icon-double-arrow"></i>
                                             </span>
                                         </div><!-- /.accordion-title -->
                                         <div class="accordion-content">
                                             <div class="inner">
-                                                <p>Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal.</p>
+                                                <p>Yes, Cozmek primarily focuses on online training, ensuring flexibility and accessibility for learners across the globe. However, we also offer offline classroom sessions at select locations for students who prefer in-person learning.</p>
                                             </div><!-- /.inner -->
                                         </div><!-- /.accordion-content -->
                                     </div><!-- /.accordion-item -->
                                     <div class="accordion active wow fadeInUp" data-wow-duration="1500ms">
                                         <div class="accordion-title">
-                                            <h4>What is included in your services?</h4>
+                                            <h4>Does Cozmek provide placement assistance or job guarantees?</h4>
                                             <span class="accordion-title__icon">
                                                 <i class="icon-double-arrow"></i>
                                             </span>
                                         </div><!-- /.accordion-title -->
                                         <div class="accordion-content">
                                             <div class="inner">
-                                                <p>There are many variations of passages Lorem Ipsum but the majority have suffered alteration in some form, by injected humour.</p>
+                                                <p>Yes, Cozmek offers placement assistance to help students prepare for job opportunities after completing their courses. This includes resume building, interview preparation, mock interviews, and access to job openings through our network.</p>
                                             </div><!-- /.inner -->
                                         </div><!-- /.accordion-content -->
                                     </div><!-- /.accordion-item -->
                                     <div class="accordion wow fadeInUp" data-wow-duration="1500ms">
                                         <div class="accordion-title">
-                                            <h4>What type of company is measured?</h4>
+                                            <h4>Does Cozmek offer training in a wide range of technologies?</h4>
                                             <span class="accordion-title__icon">
                                                 <i class="icon-double-arrow"></i>
                                             </span>
                                         </div><!-- /.accordion-title -->
                                         <div class="accordion-content">
                                             <div class="inner">
-                                                <p>Prior to joining company, she spent 20+ years at Inmosys, where he held a wide range of global leadership roles, from services to products.</p>
+                                                <p>Absolutely! While Cozmek specializes in Data Science and Python Programming, we are continually expanding our offerings to include a wide range of in-demand technologies. </p>
                                             </div><!-- /.inner -->
                                         </div><!-- /.accordion-content -->
                                     </div><!-- /.accordion-item -->
@@ -1032,36 +873,36 @@
                     <h3 class="sec-title__title">Our <span class="sec-title__title__text">expert</span> <span class="sec-title__title__shape">instructor</span></h3><!-- /.sec-title__title -->
                 </div><!-- /.sec-title -->
                 <div class="instructors-one__carousel eduhive-owl__carousel eduhive-owl__carousel--basic-nav owl-carousel owl-theme" data-owl-options='{
-			"items": 1,
-			"margin": 10,
-			"loop": true,
-			"smartSpeed": 700,
-			"nav": false,
-			"dots": true,
-			"navText": ["<span class=\"icon-arrow-left\"></span>","<span class=\"icon-arrow-right\"></span>"],
-			"autoplay": true,
-			"responsive": {
-				"0": {
-					"items": 1,
-					"nav": true,
-					"dots": false,
-					"margin": 10
-				},
-				"576": {
-					"items": 2,
-					"margin": 30
-				},
-				"992": {
-					"items": 3,
-					"margin": 30
-				},
-				"1200": {
-					"items": 4,
-					"dots": false,
-					"margin": 30
-				}
-			}
-		}'>
+                        "items": 1,
+                        "margin": 10,
+                        "loop": true,
+                        "smartSpeed": 700,
+                        "nav": false,
+                        "dots": true,
+                        "navText": ["<span class=\"icon-arrow-left\"></span>","<span class=\"icon-arrow-right\"></span>"],
+                        "autoplay": true,
+                        "responsive": {
+                            "0": {
+                                "items": 1,
+                                "nav": true,
+                                "dots": false,
+                                "margin": 10
+                            },
+                            "576": {
+                                "items": 2,
+                                "margin": 30
+                            },
+                            "992": {
+                                "items": 3,
+                                "margin": 30
+                            },
+                            "1200": {
+                                "items": 4,
+                                "dots": false,
+                                "margin": 30
+                            }
+                        }
+                    }'>
                     
                     <div class="item">
                         <div class="instructor-card wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='100ms'>
@@ -1069,31 +910,7 @@
                                 <img src="{% static 'assets/images/instructor-1-2.jpg' %}" alt="aleesha brown">
                                 <div class="instructor-card__hover">
                                     <div class="instructor-card__info">
-                                        <div class="instructor-card__social">
-                                            <span class="instructor-card__social__share">
-                                                <i class="icon-share"></i>
-                                            </span><!-- /.instructor-card__social__share -->
-                                            <div class="instructor-card__social__list">
-                                                <a href="https://facebook.com">
-                                                    <span class="instructor-card__social__list__icon">
-                                                        <i class="fab fa-facebook-f" aria-hidden="true"></i>
-                                                    </span>
-                                                    <span class="sr-only">Facebook</span>
-                                                </a>
-                                                <a href="https://facebook.com">
-                                                    <span class="instructor-card__social__list__icon">
-                                                        <i class="fab fa-linkedin-in" aria-hidden="true"></i>
-                                                    </span>
-                                                    <span class="sr-only">Linkedin</span>
-                                                </a>
-                                                <a href="https://instagram.com">
-                                                    <span class="instructor-card__social__list__icon">
-                                                        <i class="fab fa-instagram" aria-hidden="true"></i>
-                                                    </span>
-                                                    <span class="sr-only">Instagram</span>
-                                                </a>
-                                            </div><!-- /.instructor-card__social__list -->
-                                        </div><!-- /.instructor-card__social -->
+                                        
                                         <h3 class="instructor-card__name">
                                             <a href="instructor-details.html">aleesha brown</a>
                                         </h3><!-- /.instructor-card__name -->
@@ -1102,91 +919,7 @@
                                 </div><!-- /.instructor-card__hover -->
                             </div><!-- /.instructor-card__image -->
                         </div><!-- /.instructor-card -->
-                    </div><!-- /.item -->
-                    
-                    
-                    <div class="item">
-                        <div class="instructor-card wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='00ms'>
-                            <div class="instructor-card__image">
-                                <img src="{% static 'assets/images/instructor-1-5.jpg' %}" alt="kevin martin">
-                                <div class="instructor-card__hover">
-                                    <div class="instructor-card__info">
-                                        <div class="instructor-card__social">
-                                            <span class="instructor-card__social__share">
-                                                <i class="icon-share"></i>
-                                            </span><!-- /.instructor-card__social__share -->
-                                            <div class="instructor-card__social__list">
-                                                <a href="https://facebook.com">
-                                                    <span class="instructor-card__social__list__icon">
-                                                        <i class="fab fa-facebook-f" aria-hidden="true"></i>
-                                                    </span>
-                                                    <span class="sr-only">Facebook</span>
-                                                </a>
-                                                <a href="https://facebook.com">
-                                                    <span class="instructor-card__social__list__icon">
-                                                        <i class="fab fa-linkedin-in" aria-hidden="true"></i>
-                                                    </span>
-                                                    <span class="sr-only">Linkedin</span>
-                                                </a>
-                                                <a href="https://instagram.com">
-                                                    <span class="instructor-card__social__list__icon">
-                                                        <i class="fab fa-instagram" aria-hidden="true"></i>
-                                                    </span>
-                                                    <span class="sr-only">Instagram</span>
-                                                </a>
-                                            </div><!-- /.instructor-card__social__list -->
-                                        </div><!-- /.instructor-card__social -->
-                                        <h3 class="instructor-card__name">
-                                            <a href="instructor-details.html">kevin martin</a>
-                                        </h3><!-- /.instructor-card__name -->
-                                        <h6 class="instructor-card__designation">App Developer</h6><!-- /.instructor-card__designation -->
-                                    </div><!-- /.instructor-card__info -->
-                                </div><!-- /.instructor-card__hover -->
-                            </div><!-- /.instructor-card__image -->
-                        </div><!-- /.instructor-card -->
-                    </div><!-- /.item -->
-                    
-                    <div class="item">
-                        <div class="instructor-card wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='200ms'>
-                            <div class="instructor-card__image">
-                                <img src="{% static 'assets/images/instructor-1-7.jpg' %}" alt="Adlof Carone">
-                                <div class="instructor-card__hover">
-                                    <div class="instructor-card__info">
-                                        <div class="instructor-card__social">
-                                            <span class="instructor-card__social__share">
-                                                <i class="icon-share"></i>
-                                            </span><!-- /.instructor-card__social__share -->
-                                            <div class="instructor-card__social__list">
-                                                <a href="https://facebook.com">
-                                                    <span class="instructor-card__social__list__icon">
-                                                        <i class="fab fa-facebook-f" aria-hidden="true"></i>
-                                                    </span>
-                                                    <span class="sr-only">Facebook</span>
-                                                </a>
-                                                <a href="https://facebook.com">
-                                                    <span class="instructor-card__social__list__icon">
-                                                        <i class="fab fa-linkedin-in" aria-hidden="true"></i>
-                                                    </span>
-                                                    <span class="sr-only">Linkedin</span>
-                                                </a>
-                                                <a href="https://instagram.com">
-                                                    <span class="instructor-card__social__list__icon">
-                                                        <i class="fab fa-instagram" aria-hidden="true"></i>
-                                                    </span>
-                                                    <span class="sr-only">Instagram</span>
-                                                </a>
-                                            </div><!-- /.instructor-card__social__list -->
-                                        </div><!-- /.instructor-card__social -->
-                                        <h3 class="instructor-card__name">
-                                            <a href="instructor-details.html">Adlof Carone</a>
-                                        </h3><!-- /.instructor-card__name -->
-                                        <h6 class="instructor-card__designation">UI/UX Designer</h6><!-- /.instructor-card__designation -->
-                                    </div><!-- /.instructor-card__info -->
-                                </div><!-- /.instructor-card__hover -->
-                            </div><!-- /.instructor-card__image -->
-                        </div><!-- /.instructor-card -->
-                    </div><!-- /.item -->
-                    
+                    </div><!-- /.item -->   
                 </div><!-- /.instructors-one__carousel -->
             </div><!-- /.container -->
             <img src="{% static 'assets/images/shapes/instructors-shape-1-1.png' %}" alt="shape" class="instructors-one__shape-one">
@@ -1206,124 +939,71 @@
  <span class="sec-title__title__shape">and Growth with </span> <br> <span class="sec-title__title__text">Cozmek</span></h3><!-- /.sec-title__title -->
                             </div><!-- /.sec-title -->
                             <div class="testimonials-one__description wow fadeInUp" data-wow-duration="1500ms">
-                                <p class="testimonials-one__text">Aonsectetur adipiscing elit Aenean scelerisque augue vitae consequat Juisque eget congue.</p><!-- /.testimonials-one__text -->
+                                <p class="testimonials-one__text">Through cutting-edge programs and the guidance of seasoned experts, we empower individuals of all generations, unlocking their full potential in an ever-evolving world.</p><!-- /.testimonials-one__text -->
                             </div><!-- /.testimonial-one__description -->
                             <div class="testimonials-one__custome-navs"></div><!-- /.testimonials-one__custome-navs -->
                         </div><!-- /.testimonials-one__content -->
                     </div><!-- /.col-xl-4 -->
                     <div class="col-xl-8">
                         <div class="eduhive-stretch-element-inside-column">
-                            <div class="testimonials-one__carousel eduhive-owl__carousel eduhive-owl__carousel--with-shadow owl-theme owl-carousel" data-owl-options='{
-                        "items": 1,
-                        "margin": 30,
-                        "smartSpeed": 700,
-                        "loop": true,
-                        "autoplay": 600,
-                        "nav": true,
-                        "navContainer": ".testimonials-one__custome-navs",
-                        "dots": false,
-                        "navText": ["<span class=\"icon-arrow-left\"></span>","<span class=\"icon-arrow-right\"></span>"],
-                        "responsive":{
-                            "0":{
+                            <div class="testimonials-one__carousel eduhive-owl__carousel eduhive-owl__carousel--with-shadow owl-theme owl-carousel" 
+                            data-owl-options='{
                                 "items": 1,
-                                "margin": 10
-                            },
-                            "576":{
-                                "items": 1.5
-                            },
-                            "768":{
-                                "items": 1.8
-                            },
-                            "992":{
-                                "items": 2.6
-                            },
-                            "1200":{
-                                "items": 2.3
-                            },
-                            "1360":{
-                                "items": 2.3
-                            },
-                            "1536":{
-                                "items": 2.5
-                            },
-                            "1600":{
-                                "items": 2.7
-                            },
-                            "1800":{
-                                "items": 2.94
-                            }
-                        }
-                        }'>
-                                <div class="item wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="00ms">
-                                    <div class="testimonial-card">
-                                        <div class="testimonial-card__top">
-                                            <div class="testimonial-card__image">
-                                                <img src="{% static 'assets/images/testimonial-1-1.jpg' %}" alt="Esther Howard">
-                                                <span class="testimonial-card__icon"><i class="icon-quote-2"></i></span><!-- /.testimonial-card__icon -->
-                                            </div><!-- /.testimonial-card__image -->
-                                            <div class="testimonial-card__identity">
-                                                <h5 class="testimonial-card__name">Esther Howard</h5>
-                                                <p class="testimonial-card__designation">Ethical Hacker</p>
-                                            </div><!-- /.testimonial-card__identity -->
-                                        </div><!-- /.testimonial-card__top -->
-                                        <div class="testimonial-card__content">
-                                            <p class="testimonial-card__quote">I think this should be fairly easy so if you just want to have a look what you've given us is texty, we want sexy. Labrador you might wanna give it</p><!-- /.testimonial-card__quote -->
-                                            <div class="eduhive-ratings">
-                                                <span class="eduhive-ratings__icon">
-                                                    <i class="fa fa-star"></i>
-                                                </span><!-- /.eduhive-ratings__icon -->
-                                                <span class="eduhive-ratings__icon">
-                                                    <i class="fa fa-star"></i>
-                                                </span><!-- /.eduhive-ratings__icon -->
-                                                <span class="eduhive-ratings__icon">
-                                                    <i class="fa fa-star"></i>
-                                                </span><!-- /.eduhive-ratings__icon -->
-                                                <span class="eduhive-ratings__icon">
-                                                    <i class="fa fa-star"></i>
-                                                </span><!-- /.eduhive-ratings__icon -->
-                                                <span class="eduhive-ratings__icon">
-                                                    <i class="fa fa-star"></i>
-                                                </span><!-- /.eduhive-ratings__icon -->
-                                            </div><!-- /.product-ratings -->
-                                        </div><!-- /.testimonial-card__content -->
-                                    </div><!-- /.testimonial-card -->
-                                </div><!-- /.owl-slide-item-->
-                                <div class="item wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="100ms">
-                                    <div class="testimonial-card">
-                                        <div class="testimonial-card__top">
-                                            <div class="testimonial-card__image">
-                                                <img src="{% static 'assets/images/testimonial-1-2.jpg' %}" alt="Sarah Albert">
-                                                <span class="testimonial-card__icon"><i class="icon-quote-2"></i></span><!-- /.testimonial-card__icon -->
-                                            </div><!-- /.testimonial-card__image -->
-                                            <div class="testimonial-card__identity">
-                                                <h5 class="testimonial-card__name">Sarah Albert</h5>
-                                                <p class="testimonial-card__designation">managing director</p>
-                                            </div><!-- /.testimonial-card__identity -->
-                                        </div><!-- /.testimonial-card__top -->
-                                        <div class="testimonial-card__content">
-                                            <p class="testimonial-card__quote">Can you make pink a little more pinkish can you remove my double chin on my business card photo? i don't like the way it looks can you</p><!-- /.testimonial-card__quote -->
-                                            <div class="eduhive-ratings">
-                                                <span class="eduhive-ratings__icon">
-                                                    <i class="fa fa-star"></i>
-                                                </span><!-- /.eduhive-ratings__icon -->
-                                                <span class="eduhive-ratings__icon">
-                                                    <i class="fa fa-star"></i>
-                                                </span><!-- /.eduhive-ratings__icon -->
-                                                <span class="eduhive-ratings__icon">
-                                                    <i class="fa fa-star"></i>
-                                                </span><!-- /.eduhive-ratings__icon -->
-                                                <span class="eduhive-ratings__icon">
-                                                    <i class="fa fa-star"></i>
-                                                </span><!-- /.eduhive-ratings__icon -->
-                                                <span class="eduhive-ratings__icon">
-                                                    <i class="fa fa-star"></i>
-                                                </span><!-- /.eduhive-ratings__icon -->
-                                            </div><!-- /.product-ratings -->
-                                        </div><!-- /.testimonial-card__content -->
-                                    </div><!-- /.testimonial-card -->
-                                </div><!-- /.owl-slide-item-->
-                                
-                            </div><!-- /.testimonials-one__carousel -->
+                                "margin": 30,
+                                "smartSpeed": 700,
+                                "loop": true,
+                                "autoplay": 600,
+                                "nav": true,
+                                "navContainer": ".testimonials-one__custome-navs",
+                                "dots": false,
+                                "navText": ["<span class=\"icon-arrow-left\"></span>","<span class=\"icon-arrow-right\"></span>"],
+                                "responsive":{
+                                    "0":{"items": 1, "margin": 10},
+                                    "576":{"items": 1.5},
+                                    "768":{"items": 1.8},
+                                    "992":{"items": 2.6},
+                                    "1200":{"items": 2.3},
+                                    "1360":{"items": 2.3},
+                                    "1536":{"items": 2.5},
+                                    "1600":{"items": 2.7},
+                                    "1800":{"items": 2.94}
+                                }
+                            }'>
+
+                        {% for t in testimonial %}
+                        <div class="item wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="00ms">
+                            <div class="testimonial-card">
+                            <div class="testimonial-card__top">
+                                <div class="testimonial-card__image">
+                                <img src="{{ t.image.url }}" alt="{{ t.name }}">
+                                <span class="testimonial-card__icon"><i class="icon-quote-2"></i></span>
+                                </div>
+                                <div class="testimonial-card__identity">
+                                <h5 class="testimonial-card__name">{{ t.name }}</h5>
+                                <p class="testimonial-card__designation">{{ t.designation }}</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-card__content">
+                                <p class="testimonial-card__quote">{{ t.message }}</p>
+                                <div class="course-card__ratings">
+                                <div class="testimonial-rate">
+                                    {% for i in "12345"|make_list %}
+                                    {% if forloop.counter <= t.rating %}
+                                        <i class="fas fa-star text-warning"></i>
+                                    {% else %}
+                                        <i class="far fa-star text-warning"></i>
+                                    {% endif %}
+                                    {% endfor %}
+                                </div>    
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+
+                        </div>
+
                         </div><!-- /.eduhive-stretch-element-inside-column -->
                     </div><!-- /.col-xl-8 -->
                 </div><!-- /.row gutter-y-50 -->
@@ -1336,7 +1016,7 @@
             <div class="container">
                 <div class="cta-one__content wow fadeInUp" data-wow-duration="1500ms">
                     <h2 class="cta-one__title">Get Your Quality Skills Certificate <br>
-                        Through Eduhive</h2><!-- /.cta-one__title -->
+                        Through Kozmek</h2><!-- /.cta-one__title -->
                     <a href="{% url 'contact' %}" class="eduhive-btn">
                         <span>get started now</span>
                         <span class="eduhive-btn__icon">
@@ -1371,113 +1051,66 @@
                     </div><!-- /.row gutter-y-50 align-items-center -->
                 </div><!-- /.blog-one__top -->
                 <div class="blog-one__carousel eduhive-owl__carousel owl-carousel owl-theme" data-owl-options='{
-			"items": 1,
-			"margin": 10,
-			"loop": true,
-			"smartSpeed": 700,
-			"nav": true,
-			"dots": false,
-            "navContainer": ".blog-one__custome-navs",
-			"navText": ["<span class=\"icon-arrow-left\"></span>","<span class=\"icon-arrow-right\"></span>"],
-			"autoplay": true,
-			"responsive": {
-				"0": {
-					"items": 1,
-					"margin": 10
-				},
-				"768": {
-					"items": 2,
-					"margin": 30
-				},
-				"992": {
-					"items": 3,
-					"margin": 30
-				}
-			}
-		}'>
-                    <div class="item">
-                        <div class="blog-card wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='00ms'>
-                            <div class="blog-card__image">
-                                <img src="{% static 'assets/images/blog-1-1.jpg' %}" alt="Talk About the Three Major Types of Floor Tiles">
-                                <a href="{% url 'blog_details' %}" class="blog-card__image__link"><span class="sr-only">Talk About the Three Major Types of Floor Tiles</span>
-                                    <!-- /.sr-only --></a>
-                                <div class="blog-card__date">
-                                    <span class="blog-card__date__day">29</span>
-                                    <span class="blog-card__date__month">jan</span>
-                                </div><!-- /.blog-card__date -->
-                            </div><!-- /.blog-card__image -->
-                            <div class="blog-card__content">
-                                <ul class="list-unstyled blog-card__meta">
-                                    <li>
-                                        <a href="#">
-                                            <span class="blog-card__meta__icon">
-                                                <i class="far fa-user"></i>
-                                            </span>
-                                            by Admin
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="blog-card__meta__icon">
-                                                <i class="icon-comments"></i>
-                                            </span>
-                                            2 Comments
-                                        </a>
-                                    </li>
-                                </ul><!-- /.list-unstyled blog-card__meta -->
-                                <h3 class="blog-card__title"><a href="{% url 'blog_details' %}">Talk About the Three Major Types of Floor Tiles</a></h3><!-- /.blog-card__title -->
-                                <a href="{% url 'blog_details' %}" class="blog-card__link">
-                                    read More
-                                    <span class="blog-card__link__icon">
-                                        <span class="blog-card__link__icon__inner"><i class="icon-arrow-right"></i></span>
-                                    </span>
-                                </a><!-- /.blog-card__link -->
-                            </div><!-- /.blog-card__content -->
-                        </div><!-- /.blog-card -->
-                    </div><!-- /.item -->
-                    <div class="item">
-                        <div class="blog-card wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='100ms'>
-                            <div class="blog-card__image">
-                                <img src="{% static 'assets/images/blog-1-5.jpg' %}" alt="Big Data. Are There Any Leftovers In The Kitchen">
-                                <a href="{% url 'blog_details' %}" class="blog-card__image__link"><span class="sr-only">Big Data. Are There Any Leftovers In The Kitchen</span>
-                                    <!-- /.sr-only --></a>
-                                <div class="blog-card__date">
-                                    <span class="blog-card__date__day">25</span>
-                                    <span class="blog-card__date__month">june</span>
-                                </div><!-- /.blog-card__date -->
-                            </div><!-- /.blog-card__image -->
-                            <div class="blog-card__content">
-                                <ul class="list-unstyled blog-card__meta">
-                                    <li>
-                                        <a href="#">
-                                            <span class="blog-card__meta__icon">
-                                                <i class="far fa-user"></i>
-                                            </span>
-                                            by Admin
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="blog-card__meta__icon">
-                                                <i class="icon-comments"></i>
-                                            </span>
-                                            2 Comments
-                                        </a>
-                                    </li>
-                                </ul><!-- /.list-unstyled blog-card__meta -->
-                                <h3 class="blog-card__title"><a href="{% url 'blog_details' %}">Big Data. Are There Any Leftovers In The Kitchen</a></h3><!-- /.blog-card__title -->
-                                <a href="{% url 'blog_details' %}" class="blog-card__link">
-                                    read More
-                                    <span class="blog-card__link__icon">
-                                        <span class="blog-card__link__icon__inner"><i class="icon-arrow-right"></i></span>
-                                    </span>
-                                </a><!-- /.blog-card__link -->
-                            </div><!-- /.blog-card__content -->
-                        </div><!-- /.blog-card -->
-                    </div><!-- /.item -->
-                   
-                    
-                </div><!-- /.blog-one__carousel -->
+                "items": 1,
+                "margin": 10,
+                "loop": true,
+                "smartSpeed": 700,
+                "nav": true,
+                "dots": false,
+                "navContainer": ".blog-one__custome-navs",
+                "navText": ["<span class=\"icon-arrow-left\"></span>","<span class=\"icon-arrow-right\"></span>"],
+                "autoplay": true,
+                "responsive": {
+                    "0": { "items": 1, "margin": 10 },
+                    "768": { "items": 2, "margin": 30 },
+                    "992": { "items": 3, "margin": 30 }
+                }
+            }'>
+                {% for b in blog %}
+                <div class="item">
+                    <div class="blog-card wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='00ms'>
+                        <div class="blog-card__image">
+                            <img src="{{ b.main_image.url }}" alt="{{ b.blog_heading }}">
+                            <a href="{% url 'blog_details' b.id %}" class="blog-card__image__link">
+                                <span class="sr-only">{{ b.blog_heading }}</span>
+                            </a>
+                            {% if b.date %}
+                            <div class="blog-card__date">
+                                <span class="blog-card__date__day">{{ b.date.day }}</span>
+                                <span class="blog-card__date__month">{{ b.date|date:"M" }}</span>
+                            </div>
+                            {% endif %}
+                        </div>
+                        <div class="blog-card__content">
+                            <ul class="list-unstyled blog-card__meta">
+                                <li>
+                                    <a href="#">
+                                        <span class="blog-card__meta__icon"><i class="far fa-user"></i></span>
+                                        by Admin
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="blog-card__meta__icon"><i class="icon-comments"></i></span>
+                                        0 Comments
+                                    </a>
+                                </li>
+                            </ul>
+                            <h3 class="blog-card__title">
+                                <a href="{% url 'blog_details' b.id %}">{{ b.blog_heading|truncatechars:50 }}</a>
+                            </h3>
+                            <a href="{% url 'blog_details' b.id %}" class="blog-card__link">
+                                read More
+                                <span class="blog-card__link__icon">
+                                    <span class="blog-card__link__icon__inner"><i class="icon-arrow-right"></i></span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
             </div><!-- /.container -->
             <img src="{% static 'assets/images/shapes/blog-shape-1-1.png' %}" alt="shape" class="blog-one__shape-one">
             <img src="{% static 'assets/images/shapes/blog-shape-1-2.png' %}" alt="shape" class="blog-one__shape-two">
@@ -1489,48 +1122,29 @@
                     <h4 class="client-carousel__title"> Brands trust us</h4><!-- /.client-carousel__title -->
                 </div><!-- /.client-carousel__content -->
                 <div class="client-carousel__carousel eduhive-owl__carousel owl-theme owl-carousel" data-owl-options='{
-            "items": 5,
-            "margin": 65,
-            "smartSpeed": 700,
-            "loop":true,
-            "autoplay": 6000,
-            "nav":false,
-            "dots":false,
-            "navText": ["<span class=\"icon-arrow-left\"></span>","<span class=\"icon-arrow-right\"></span>"],
-            "responsive":{
-                "0":{
-                    "items": 2,
-                    "margin": 50
-                },
-                "500":{
-                    "items": 3,
-                    "margin": 60
-                },
-                "768":{
-                    "items": 3,
-                    "margin": 80
-                },
-                "992":{
-                    "items": 4,
-                    "margin": 60
-                },
-                "1200":{
-                    "items": 5,
-                    "margin": 163
+                "items": 5,
+                "margin": 65,
+                "smartSpeed": 700,
+                "loop":true,
+                "autoplay": 6000,
+                "nav":false,
+                "dots":false,
+                "navText": ["<span class=\"icon-arrow-left\"></span>","<span class=\"icon-arrow-right\"></span>"],
+                "responsive":{
+                    "0":{"items": 2, "margin": 50},
+                    "500":{"items": 3, "margin": 60},
+                    "768":{"items": 3, "margin": 80},
+                    "992":{"items": 4, "margin": 60},
+                    "1200":{"items": 5, "margin": 163}
                 }
-            }
             }'>
-                    
-                    <div class="client-carousel__item">
-                        <img src="{% static 'assets/images/brand-1-2.png' %}" alt="eduhive" class="client-carousel__image">
-                        {% comment %} <img src="{% static 'assets/images/brand-1-2-hover.png' %}" alt="eduhive" class="client-carousel__hover-image"> {% endcomment %}
-                    </div><!-- /.owl-slide-item-->
-                    
-                    <div class="client-carousel__item">
-                        <img src="{% static 'assets/images/brand-1-4.png' %}" alt="eduhive" class="client-carousel__image">
-                        {% comment %} <img src="{% static 'assets/images/brand-1-4-hover.png' %}" alt="eduhive" class="client-carousel__hover-image"> {% endcomment %}
-                    </div><!-- /.owl-slide-item-->
-                </div><!-- /.client-carousel__carousel -->
+                {% for partner in partners %}
+                <div class="client-carousel__item">
+                    <img src="{{ partner.logo.url }}" alt="{{ partner.name }}" class="client-carousel__image">
+                </div>
+                {% endfor %}
+            </div><!-- /.client-carousel__carousel -->
+
             </div><!-- /.container -->
         </div><!-- /.client-carousel -->
         <div class="floating_btn">
@@ -1600,47 +1214,12 @@
         
         <footer class="main-footer section-space-top">
             <div class="container">
-                <div class="main-footer__top">
-                    <a href="index.html" class="main-footer__logo">
-                        <img src="{% static 'assets/images/Logo_Cozmek.png' %}" width="209" alt="Eduhive HTML Template">
-                    </a><!-- /.main-footer__logo -->
-                    <div class="main-footer__top__inner">
-                        <div class="main-footer__newsletter">
-                            <form action="#" data-url="MAILCHIMP_FORM_URL" class="main-footer__newsletter__form mc-form">
-                                <input type="text" name="EMAIL" placeholder="Enter Your Mail">
-                                <button type="submit" class="eduhive-btn">
-                                    <span>Get newsletter</span>
-                                </button>
-                            </form><!-- /.main-footer__newsletter__form mc-form -->
-                            <div class="mc-form__response"></div><!-- /.mc-form__response -->
-                        </div><!-- /.main-footer__newsletter -->
-                        <div class="main-footer__social social-links">
-                            <a href="https://facebook.com">
-                                <i class="fab fa-facebook-f" aria-hidden="true"></i>
-                                <span class="sr-only">Facebook</span>
-                            </a>
-                            <a href="https://twitter.com">
-                                <i class="icon-twitter" aria-hidden="true"></i>
-                                <span class="sr-only">Twitter</span>
-                            </a>
-                            <a href="https://linkedin.com">
-                                <i class="fab fa-linkedin-in" aria-hidden="true"></i>
-                                <span class="sr-only">Linkedin</span>
-                            </a>
-                            <a href="https://youtube.com">
-                                <i class="fab fa-youtube" aria-hidden="true"></i>
-                                <span class="sr-only">Youtube</span>
-                            </a>
-                        </div><!-- /.main-footer__social social-links -->
-                    </div><!-- /.main-footer__top__inner -->
-                </div><!-- /.main-footer__top -->
+                
                 <div class="row gutter-y-40">
                     <div class="col-xl-3 col-lg-4 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="00ms">
                         <div class="footer-widget footer-widget--about">
                             <h2 class="footer-widget__title">About Us</h2><!-- /.footer-widget__title -->
-                            <p class="footer-widget__about-text">Phasellus ultricies aliquam volutpat
-                                ullamcorper laoreet neque, a lacinia
-                                curabitur lacinia mollis</p><!-- /.footer-widget__about-text -->
+                            <p class="footer-widget__about-text">We are Cozmek Private Limited, a research and development firm specializing in Artificial Intelligence. Our objective is to achieve worldwide prominence in AI-driven innovations via our AI Labs and Projects. </p><!-- /.footer-widget__about-text -->
                             <ul class="footer-widget__info">
                                 <li>
                                     <span class="footer-widget__info__icon"><i class="icon-location"></i></span>
@@ -1900,6 +1479,7 @@
     <script src="{% static 'assets/vendors/jquery-lettering/jquery.lettering.min.js' %}"></script>
     <!-- template js -->
     <script src="{% static 'assets/js/eduhive.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

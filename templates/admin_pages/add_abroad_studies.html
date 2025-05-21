@@ -1,0 +1,85 @@
+{% extends "admin_pages/base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Add Abroad Studies</h4>
+          <form class="forms-sample" method="POST" enctype="multipart/form-data"> 
+            {% csrf_token %}
+          
+            <div class="form-group">
+              <label for="country_name">Country Name</label>
+              <input type="text" class="form-control" id="country_name" name="country_name" placeholder="Enter Country Name">
+            </div>
+          
+            <div class="form-group">
+              <label for="country_logo">Country Logo</label>
+              <input type="file" class="form-control" id="country_logo" name="country_logo" accept="image/*">
+            </div>
+          
+            <div class="form-group">
+              <label for="country_image">Country Image</label>
+              <input type="file" class="form-control" id="country_image" name="country_image" accept="image/*">
+            </div>
+          
+            <div class="form-group">
+              <label for="country_description">Small Description</label>
+              <input type="text" class="form-control" id="country_description" name="country_description" placeholder="Short description">
+            </div>
+          
+            <div class="form-group">
+              <label for="main_image">Main Image</label>
+              <input type="file" class="form-control" id="main_image" name="main_image" accept="image/*">
+            </div>
+          
+            <div class="form-group">
+              <label for="video">Course Video</label>
+              <input type="file" class="form-control" id="video" name="video" accept="video/*">
+            </div>
+          
+            <div class="form-group">
+              <label for="study_details">Detailed Description</label>
+              <textarea class="form-control" name="study_details" id="study_details" rows="3" style="height: 150px;" placeholder="Enter Your Description"></textarea>
+            </div>
+          
+            <button type="submit" class="btn btn-primary me-2">Submit</button>
+          </form>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CKEditor 5 -->
+<script src="https://cdn.ckeditor.com/ckeditor5/39.0.0/classic/ckeditor.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    ClassicEditor
+      .create(document.querySelector('#study_details'), {
+        toolbar: [
+          'heading', '|',
+          'bold', 'italic', 'underline', 'strikethrough', 'link', 'uploadFile', '|',
+          'bulletedList', 'numberedList', 'blockQuote', '|',
+          'insertTable', 'imageUpload', 'mediaEmbed', 'undo', 'redo'
+        ],
+        ckfinder: {
+          uploadUrl: '{% url "ckeditor_upload" %}'
+        },
+        simpleUpload: {
+          uploadUrl: '{% url "ckeditor_upload" %}',
+          headers: {
+            'X-CSRFToken': '{{ csrf_token }}'
+          }
+        }
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  });
+</script>
+{% endblock %} 

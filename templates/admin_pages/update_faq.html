@@ -1,0 +1,76 @@
+{% extends "admin_pages/base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Update Faq</h4>
+          
+          <form class="forms-sample" method="POST">
+            {% csrf_token %}
+            {% if error %}
+                <div class="alert alert-danger">{{ error }}</div>
+            {% endif %}
+            <div class="form-group">
+                <label for="course_program">Course Name</label>
+                <select class="form-control" id="course_program" name="course_program">
+                    {% for program in course_programs %}
+                        <option value="{{ program.id }}" {% if program.id == faq.course_program.id %}selected{% endif %}>
+                            {{ program.course_name }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+        
+            <div class="form-group">
+                <label for="question">Question</label>
+                <input type="text" class="form-control" id="question" name="question" value="{{ faq.question }}">
+            </div>
+        
+            <div class="form-group">
+                <label for="answer">Answer</label>
+                <textarea class="form-control" name="answer" id="answer" rows="3">{{ faq.answer }}</textarea>
+            </div>
+        
+            <button type="submit" class="btn btn-success">Update FAQ</button>
+        </form>
+        
+        
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CKEditor 5 -->
+<script src="https://cdn.ckeditor.com/ckeditor5/39.0.0/classic/ckeditor.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    ClassicEditor
+      .create(document.querySelector('#answer'), {
+        toolbar: [
+          'heading', '|',
+          'bold', 'italic', 'underline', 'strikethrough', 'link', 'uploadFile', '|',
+          'bulletedList', 'numberedList', 'blockQuote', '|',
+          'insertTable', 'imageUpload', 'mediaEmbed', 'undo', 'redo'
+        ],
+        ckfinder: {
+          uploadUrl: '{% url "ckeditor_upload" %}'
+        },
+        simpleUpload: {
+          uploadUrl: '{% url "ckeditor_upload" %}',
+          headers: {
+            'X-CSRFToken': '{{ csrf_token }}'
+          }
+        }
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  });
+</script>
+{% endblock %} 

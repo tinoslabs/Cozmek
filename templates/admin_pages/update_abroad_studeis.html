@@ -1,0 +1,99 @@
+{% extends "admin_pages/base.html" %}
+{% load static %}
+
+{% block content %}
+      
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-md-6 grid-margin stretch-card">
+                  <div class="card">
+                    <div class="card-body">
+                      <h4 class="card-title">Update Abroad Studies</h4>
+
+
+                      <form class="forms-sample" method="POST" enctype="multipart/form-data"> 
+                        {% csrf_token %}
+                      
+                        <div class="form-group">
+                          <label for="country_name">Country Name</label>
+                          <input type="text" class="form-control" id="country_name" name="country_name" value="{{ abroad.country_name }}" placeholder="Enter Country Name">
+                        </div>
+                      
+                        <div class="form-group">
+                          <label for="country_logo">Country Logo</label>
+                          {% if abroad.country_logo %}
+                            <p>Current Logo: {{ abroad.country_logo }}</p>
+                          {% endif %}
+                          <input type="file" class="form-control" id="country_logo" name="country_logo" accept="image/*">
+                        </div>
+                      
+                        <div class="form-group">
+                          <label for="country_image">Country Image</label>
+                          {% if abroad.country_image %}
+                            <img src="{{ abroad.country_image.url }}" alt="Country Image" width="120" height="auto"><br>
+                          {% endif %}
+                          <input type="file" class="form-control" id="country_image" name="country_image" accept="image/*">
+                        </div>
+                      
+                        <div class="form-group">
+                          <label for="country_description">Small Description</label>
+                          <input type="text" class="form-control" id="country_description" name="country_description" value="{{ abroad.country_description }}" placeholder="Short description">
+                        </div>
+                      
+                        <div class="form-group">
+                          <label for="main_image">Main Image</label>
+                          {% if abroad.main_image %}
+                            <img src="{{ abroad.main_image.url }}" alt="Main Image" width="120" height="auto"><br>
+                          {% endif %}
+                          <input type="file" class="form-control" id="main_image" name="main_image" accept="image/*">
+                        </div>
+                      
+                        <div class="form-group">
+                          <label for="video">Course Video</label>
+                          {% if abroad.video %}
+                            <p>Current Video: <a href="{{ abroad.video.url }}" target="_blank">View</a></p>
+                          {% endif %}
+                          <input type="file" class="form-control" id="video" name="video" accept="video/*">
+                        </div>
+                      
+                        <div class="form-group">
+                          <label for="study_details">Detailed Description</label>
+                          <textarea class="form-control" name="study_details" id="study_details" rows="3" style="height: 150px;" placeholder="Enter Your Description">{{ abroad.study_details|safe }}</textarea>
+                        </div>
+                      
+                        <button type="submit" class="btn btn-primary me-2">Submit</button>
+                      </form>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <script src="https://cdn.ckeditor.com/ckeditor5/39.0.0/classic/ckeditor.js"></script>
+            <script>
+              document.addEventListener('DOMContentLoaded', function() {
+                ClassicEditor
+                  .create(document.querySelector('#study_details'), {
+                    toolbar: [
+                      'heading', '|',
+                      'bold', 'italic', 'underline', 'strikethrough', 'link', 'uploadFile', '|',
+                      'bulletedList', 'numberedList', 'blockQuote', '|',
+                      'insertTable', 'imageUpload', 'mediaEmbed', 'undo', 'redo'
+                    ],
+                    ckfinder: {
+                      uploadUrl: '{% url "ckeditor_upload" %}'
+                    },
+                    simpleUpload: {
+                      uploadUrl: '{% url "ckeditor_upload" %}',
+                      headers: {
+                        'X-CSRFToken': '{{ csrf_token }}'
+                      }
+                    }
+                  })
+                  .catch(error => {
+                    console.error(error);
+                  });
+              });
+            </script>
+            {% endblock %} 

@@ -1,0 +1,77 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+
+        <section class="page-header">
+            <div class="container">
+                <div class="page-header__content">
+                    <ul class="eduhive-breadcrumb list-unstyled">
+                        <li><span class="eduhive-breadcrumb__icon"><i class="icon-home"></i></span><a href="{% url 'index' %}">Home</a></li>
+                        <li><span>Our instructors</span></li>
+                    </ul><!-- /.eduhive-breadcrumb list-unstyled -->
+                    <h2 class="page-header__title">Instructors </h2>
+                </div><!-- /.page-header__content -->
+            </div><!-- /.container -->
+            <img src="{% static 'assets/images/shapes/page-header-shape-1.png' %}" alt="shape" class="page-header__shape-one">
+            <img src="{% static 'assets/images/shapes/page-header-shape-2.png' %}" alt="shape" class="page-header__shape-two">
+            <div class="page-header__shape-three"></div><!-- /.page-header__shape-three -->
+            <div class="page-header__shape-four"></div><!-- /.page-header__shape-four -->
+        </section><!-- /.page-header -->
+
+        <section class="instructors-page section-space">
+            <div class="container">
+                <div class="instructors-page__carousel eduhive-owl__carousel eduhive-owl__carousel--basic-nav owl-carousel owl-theme" data-owl-options='{
+                            "items": 1,
+                            "margin": 10,
+                            "loop": true,
+                            "smartSpeed": 700,
+                            "nav": false,
+                            "dots": true,
+                            "navText": ["<span class=\"icon-arrow-left\"></span>","<span class=\"icon-arrow-right\"></span>"],
+                            "autoplay": true,
+                            "responsive": {
+                                "0": {
+                                    "items": 1,
+                                    "nav": true,
+                                    "dots": false,
+                                    "margin": 10
+                                },
+                                "768": {
+                                    "items": 2,
+                                    "margin": 30
+                                },
+                                "992": {
+                                    "items": 3,
+                                    "margin": 30
+                                }
+                            }
+                        }'>
+                    
+                    {% for instructor in instructors %}
+                        <div class="item">
+                            <div class="instructor-card-two wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='200ms'>
+                                <div class="instructor-card-two__image">
+                                    <img src="{{ instructor.image.url }}" alt="{{ instructor.name }}">
+                                </div><!-- /.instructor-card-two__image -->
+                                <div class="instructor-card-two__content">
+                                    <div class="instructor-card-two__info">
+                                        <h3 class="instructor-card-two__name">
+                                            <a href="#">{{ instructor.name }}</a>
+                                        </h3><!-- /.instructor-card-two__name -->
+                                        <h6 class="instructor-card-two__designation">{{ instructor.designation }}</h6><!-- /.instructor-card-two__designation -->
+                                    </div><!-- /.instructor-card-two__info -->
+                                </div><!-- /.instructor-card-two__content -->
+                            </div><!-- /.instructor-card-two -->
+                        </div>
+                    {% endfor %}
+
+                    
+                    
+                    
+                </div><!-- /.instructors-page__carousel -->
+            </div><!-- /.container -->
+        </section><!-- /.instructors-page section-space -->
+
+          {% endblock %}

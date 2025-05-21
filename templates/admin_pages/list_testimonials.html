@@ -1,0 +1,76 @@
+{% extends "admin_pages/base.html" %}
+{% load static %}
+
+{% block content %}
+<style>
+  .table-responsive {
+      overflow-x: auto;
+  }
+  .card-body td:nth-child(3) {
+      max-width: 600px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+  }
+</style>
+
+<div class="col-lg-10 grid-margin stretch-card">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Testimonial List</h4>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+             
+              <th>Name</th>
+              <th>Designation</th>
+              <th>Rating</th> 
+
+              <th>Review</th>
+              <th>Image</th>
+              <th>Update</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for testimonial in testimonials %}
+              <tr>
+               
+                <td>{{ testimonial.name }}</td>
+                <td>{{ testimonial.designation }}</td>
+
+                <td>
+                    {% for i in "12345"|make_list %}
+                      {% if forloop.counter <= testimonial.rating %}
+                        <i class="mdi mdi-star text-warning"></i>
+                      {% else %}
+                        <i class="mdi mdi-star-outline text-warning"></i>
+                      {% endif %}
+                    {% endfor %}
+                </td>
+            
+                <td style="white-space: inherit; word-wrap: break-word;">{{ testimonial.message|safe }}</td>
+                <td>
+                  {% if testimonial.image %}
+                    <img src="{{ testimonial.image.url }}" width="60" height="60" style="object-fit: cover; border-radius: 5px;">
+                  {% else %}
+                    No Image
+                  {% endif %}
+                </td>
+                
+                <td>
+                  <a href="{% url 'update_testimonial' testimonial.pk %}"><button><i class="mdi mdi-cloud-upload" aria-hidden="true"></i></button></a>
+                </td>
+                <td>
+                  <a href=""><button><i class="mdi mdi-delete" aria-hidden="true"></i></button></a>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

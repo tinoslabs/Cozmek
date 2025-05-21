@@ -1,0 +1,102 @@
+{% extends "admin_pages/base.html" %}
+{% load static %}
+
+{% block content %}
+      
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-md-6 grid-margin stretch-card">
+                  <div class="card">
+                    <div class="card-body">
+                      <h4 class="card-title">Update Coaching</h4>
+
+
+                      <form class="forms-sample" method="POST" enctype="multipart/form-data"> 
+                        {% csrf_token %}
+                        
+                        <div class="form-group">
+                          <label for="country_name">Country Name</label>
+                          <input type="text" class="form-control" id="country_name" name="title" value="{{ coaching.title }}" placeholder="Enter Country Name">
+                        </div>
+                      
+                        <div class="form-group">
+                          <label for="country_logo">Country Logo</label><br>
+                          {% if coaching.logo %}
+                            <img src="{{ coaching.logo.url }}" alt="Logo" width="100"><br>
+                          {% endif %}
+                          <input type="file" class="form-control" id="country_logo" name="logo" accept="image/*">
+                        </div>
+                      
+                        <div class="form-group">
+                          <label for="country_image">Country Image</label><br>
+                          {% if coaching.image %}
+                            <img src="{{ coaching.image.url }}" alt="Image" width="100"><br>
+                          {% endif %}
+                          <input type="file" class="form-control" id="country_image" name="image" accept="image/*">
+                        </div>
+                      
+                        <div class="form-group">
+                          <label for="country_description">Small Description</label>
+                          <input type="text" class="form-control" id="country_description" name="description" value="{{ coaching.description }}" placeholder="Short description">
+                        </div>
+                      
+                        <div class="form-group">
+                          <label for="main_image">Main Image</label><br>
+                          {% if coaching.main_image %}
+                            <img src="{{ coaching.main_image.url }}" alt="Main Image" width="100"><br>
+                          {% endif %}
+                          <input type="file" class="form-control" id="main_image" name="main_image" accept="image/*">
+                        </div>
+                      
+                        <div class="form-group">
+                          <label for="video">Course Video</label><br>
+                          {% if coaching.coaching_video %}
+                            <video width="200" controls>
+                              <source src="{{ coaching.coaching_video.url }}" type="video/mp4">
+                              Your browser does not support the video tag.
+                            </video><br>
+                          {% endif %}
+                          <input type="file" class="form-control" id="video" name="coaching_video" accept="video/*">
+                        </div>
+                      
+                        <div class="form-group">
+                          <label for="study_details">Detailed Description</label>
+                          <textarea class="form-control" name="coaching_deatils" id="study_details" rows="3" style="height: 150px;" placeholder="Enter Your Description">{{ coaching.coaching_deatils }}</textarea>
+                        </div>
+                      
+                        <button type="submit" class="btn btn-primary me-2">Submit</button>
+                      </form>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <script src="https://cdn.ckeditor.com/ckeditor5/39.0.0/classic/ckeditor.js"></script>
+            <script>
+              document.addEventListener('DOMContentLoaded', function() {
+                ClassicEditor
+                  .create(document.querySelector('#study_details'), {
+                    toolbar: [
+                      'heading', '|',
+                      'bold', 'italic', 'underline', 'strikethrough', 'link', 'uploadFile', '|',
+                      'bulletedList', 'numberedList', 'blockQuote', '|',
+                      'insertTable', 'imageUpload', 'mediaEmbed', 'undo', 'redo'
+                    ],
+                    ckfinder: {
+                      uploadUrl: '{% url "ckeditor_upload" %}'
+                    },
+                    simpleUpload: {
+                      uploadUrl: '{% url "ckeditor_upload" %}',
+                      headers: {
+                        'X-CSRFToken': '{{ csrf_token }}'
+                      }
+                    }
+                  })
+                  .catch(error => {
+                    console.error(error);
+                  });
+              });
+            </script>
+            {% endblock %} 

@@ -6,15 +6,18 @@
             <div class="container">
                 <div class="page-header__content">
                     <ul class="eduhive-breadcrumb list-unstyled">
-                        <li><span class="eduhive-breadcrumb__icon"><i class="icon-home"></i></span><a href="index.html">Home</a></li>
+                        <li><span class="eduhive-breadcrumb__icon"><i class="icon-home"></i></span><a href="{% url 'index' %}">Home</a></li>
                         <li><span>Our Blog</span></li>
-                        <li><span>There are many variations of passages of available but majority</span></li>
+                        <li><span>Blog Details</span></li>
                     </ul><!-- /.eduhive-breadcrumb list-unstyled -->
-                    <h2 class="page-header__title">There are many variations of passages of available but majority</h2>
+                    <h2 class="page-header__title">{{ blog.blog_heading }}</h2>
                 </div><!-- /.page-header__content -->
             </div><!-- /.container -->
-            <img src="assets/images/page-header-shape-1.png" alt="shape" class="page-header__shape-one">
-            <img src="assets/images/page-header-shape-2.png" alt="shape" class="page-header__shape-two">
+            
+
+            <img src="{% static 'assets/images/shapes/page-header-shape-1.png' %}" alt="shape" class="page-header__shape-one">
+            <img src="{% static 'assets/images/shapes/page-header-shape-2.png' %}" alt="shape" class="page-header__shape-two">
+            
             <div class="page-header__shape-three"></div><!-- /.page-header__shape-three -->
             <div class="page-header__shape-four"></div><!-- /.page-header__shape-four -->
         </section><!-- /.page-header -->
@@ -24,65 +27,30 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
                         <div class="blog-details">
+                           
+
                             <div class="blog-card blog-card--three wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1500ms">
                                 <div class="blog-card__image">
-                                    <img src="{% static 'assets/images/blog-d-1-1.jpg' %}" alt="blog details">
+                                    <img src="{{ blog.main_image.url }}" alt="{{ blog.blog_heading }}">
+                                    {% if blog.date %}
                                     <div class="blog-card__date">
-                                        <span class="blog-card__date__day">25</span>
-                                        <span class="blog-card__date__month">June</span>
-                                    </div><!-- /.blog-card__date -->
-                                </div><!-- /.blog-card__image -->
-                                <div class="blog-card__content">
-                                    <ul class="list-unstyled blog-card__meta">
-                                        <li>
-                                            <a href="#">
-                                                <span class="blog-card__meta__icon">
-                                                    <i class="far fa-user"></i>
-                                                </span>
-                                                by Admin
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <span class="blog-card__meta__icon">
-                                                    <i class="icon-comments"></i>
-                                                </span>
-                                                2 Comments
-                                            </a>
-                                        </li>
-                                    </ul><!-- /.list-unstyled blog-card__meta -->
-                                    <h3 class="blog-card__title">There are many variations of passages of available but majority</h3>
-                                    <!-- /.blog-card__title -->
-                                    <div class="blog-card__content__inner">
-                                        <p class="blog-card__text">Neque Porro Est Qui Dolorem Ipsum Quia Quaed Inventor
-                                            Veritatis Et Quasi Architecto Beatae Vitae Dicta Sunt Explicabo. Aelltes Port Lacus Quis Enim Var
-                                            Sed Efficitur Turpis Gilla Sed Sit Amet Finibus Eros. Lorem Ipsum Is Simply Dummy Text Of The
-                                            Printing And Typesetting Industry.</p><!-- /.blog-card__text -->
-                                        <p class="blog-card__text">When An Unknown Printer Took A Galley Of Type And
-                                            Scrambled It To Make A Type Specimen Book. It Has Survived Not Only Five Centuries, But Also The
-                                            Leap Into Electronic Typesetting, Remaining Essentially Unchanged. Aelltes Port Lacus Quis Enim Var
-                                            Sed Efficitur</p><!-- /.blog-card__text -->
-                                    </div><!-- /.blog-card__content__inner -->
-                                </div><!-- /.blog-card-four__content -->
-                            </div><!-- /.blog-card -->
-                            
-                            <div class="blog-details__meta">
-                                <div class="blog-details__categories">
-                                    <h4 class="blog-details__meta__title">categories:</h4><!-- /.blog-details__meta__title -->
-                                    <div class="blog-details__categories__box">
-                                        <a href="blog-details-right.html" class="blog-details__categories__btn">Computer Science</a>
-                                        <a href="blog-details-right.html" class="blog-details__categories__btn">Arts & Design</a>
+                                        <span class="blog-card__date__day">{{ blog.date.day }}</span>
+                                        <span class="blog-card__date__month">{{ blog.date|date:"F" }}</span>
                                     </div>
-                                    <!--blog-details__categories__box -->
-                                </div><!-- /.blog-details__categories -->
-                                <div class="blog-details__tags">
-                                    <h4 class="blog-details__meta__title">Tags:</h4><!-- /.blog-details__meta__title -->
-                                    <div class="blog-details__tags__box">
-                                        <a href="blog-details-right.html">education</a>
-                                        <a href="blog-details-right.html">coach</a>
-                                    </div><!-- /.blog-details__tag__box-->
-                                </div><!-- /.blog-details__tags -->
-                            </div><!-- /.blog-details__meta -->
+                                    {% endif %}
+                                </div><!-- /.blog-card__image -->
+
+                                <div class="blog-card__content">
+                                    <h3 class="blog-card__title">{{ blog.blog_heading }}</h3>
+
+                                    <div class="blog-card__content__inner">
+                                        <p class="blog-card__text">{{ blog.blog_details|safe|linebreaks }}</p>
+                                    </div><!-- /.blog-card__content__inner -->
+                                </div><!-- /.blog-card__content -->
+                            </div>
+
+                            
+                            
                         </div><!-- /.blog-details -->
 
                         

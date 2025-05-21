@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+        <section class="page-header">
+            <div class="container">
+                <div class="page-header__content">
+                    <ul class="eduhive-breadcrumb list-unstyled">
+                        <li><span class="eduhive-breadcrumb__icon"><i class="icon-home"></i></span><a href="{% url 'index' %}">Home</a></li>
+                        <li><span>Our blog</span></li>
+                    </ul><!-- /.eduhive-breadcrumb list-unstyled -->
+                    <h2 class="page-header__title">Our Blogs</h2>
+                </div><!-- /.page-header__content -->
+            </div><!-- /.container -->
+            <img src="{% static 'assets/images/shapes/page-header-shape-1.png' %}" alt="shape" class="page-header__shape-one">
+            <img src="{% static 'assets/images/shapes/page-header-shape-2.png' %}" alt="shape" class="page-header__shape-two">
+            <div class="page-header__shape-three"></div><!-- /.page-header__shape-three -->
+            <div class="page-header__shape-four"></div><!-- /.page-header__shape-four -->
+        </section><!-- /.page-header -->
+
+        <section class="blog-page section-space">
+            <div class="container">
+                <div class="row gutter-y-30">
+                    {% for b in blog %}
+                    <div class="col-md-6 col-lg-4">
+                        <div class="blog-card wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='00ms'>
+                            <div class="blog-card__image">
+                                <img src="{{ b.main_image.url }}" alt="{{ b.blog_heading }}">
+                                <a href="{% url 'blog_details' b.id %}" class="blog-card__image__link">
+                                    <span class="sr-only">{{ b.blog_heading }}</span>
+                                </a>
+                                {% if b.date %}
+                                <div class="blog-card__date">
+                                    <span class="blog-card__date__day">{{ b.date|date:"d" }}</span>
+                                    <span class="blog-card__date__month">{{ b.date|date:"M" }}</span>
+                                </div>
+                                {% endif %}
+                            </div><!-- /.blog-card__image -->
+
+                            <div class="blog-card__content">
+                                <ul class="list-unstyled blog-card__meta">
+                                    <li>
+                                        <a href="#">
+                                            <span class="blog-card__meta__icon">
+                                                <i class="far fa-user"></i>
+                                            </span>
+                                            by Admin
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <span class="blog-card__meta__icon">
+                                                <i class="icon-comments"></i>
+                                            </span>
+                                            2 Comments
+                                        </a>
+                                    </li>
+                                </ul><!-- /.blog-card__meta -->
+
+                                <h3 class="blog-card__title">
+                                    <a href="{% url 'blog_details' b.id %}">{{ b.blog_heading }}</a>
+                                </h3><!-- /.blog-card__title -->
+
+                                <a href="{% url 'blog_details' b.id %}" class="blog-card__link">
+                                    Read More
+                                    <span class="blog-card__link__icon">
+                                        <span class="blog-card__link__icon__inner"><i class="icon-arrow-right"></i></span>
+                                    </span>
+                                </a>
+                            </div><!-- /.blog-card__content -->
+                        </div><!-- /.blog-card -->
+                    </div><!-- /.col-md-6 col-lg-4 -->
+                    {% empty %}
+                    <p>No blogs found.</p>
+                    {% endfor %}
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </section><!-- /.blog-page section-space -->
+
+
+        {% endblock %}
