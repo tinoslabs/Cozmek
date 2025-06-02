@@ -41,8 +41,29 @@ urlpatterns = [
     path('update_service/<int:id>/', views.update_service, name='update_service'),
     path('delete_service/<int:id>/', views.delete_service, name='delete_service'),
     
+    path('add_event', views.add_event, name='add_event'),
+    path('view_event', views.view_event, name='view_event'),
+    path('update_event/<int:id>/', views.update_event, name='update_event'),
+    path('delete_event/<int:id>/', views.delete_event, name='delete_event'),
+      
     path('view_enquiries', views.view_enquiries, name='view_enquiries'),
     path('delete_enquiry/<int:id>/', views.delete_enquiry, name='delete_enquiry'),
+    
+    
+    path('add_gallery', views.add_gallery, name='add_gallery'),
+    path('view_gallery', views.view_gallery, name='view_gallery'),
+    path('update_gallery/<int:id>/', views.update_gallery, name='update_gallery'),
+    path('delete_gallery/<int:id>/', views.delete_gallery, name='delete_gallery'),
+    
+    
+    
+    path('events', views.events, name='events'),
+    path('event_details/<int:id>/', views.event_details, name='event_details'),
+    
+    path('gallery', views.gallery, name='gallery'),
+    
+    path('services',views.services,name='services'),
+    path('service_details/<int:service_id>/',views.service_details,name='service_details'),
      
     path('ckeditor/upload/', ckeditor_views.upload, name='ckeditor_upload'),
     path('ckeditor/browse/', ckeditor_views.browse, name='ckeditor_browse'),

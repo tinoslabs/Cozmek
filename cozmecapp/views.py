@@ -5,8 +5,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_protect
 
-from .models import  CourseModel, Testimonial, TeamMembers, Partners, Blog, Service, OfferEnquiry
-from .forms import  CourseForm, TestimonialForm, TeamForm, PartnersForm, BlogForm, ServiceForm, OfferEnquiryForm
+from .models import  CourseModel, Testimonial, TeamMembers, Partners, Blog, Service, OfferEnquiry, Event, Gallery
+from .forms import  CourseForm, TestimonialForm, TeamForm, PartnersForm, BlogForm, ServiceForm, OfferEnquiryForm, EventForm, GalleryForm
 # Create your views here.
 from django.contrib import messages
 
@@ -56,7 +56,8 @@ def index(request):
     testimonial = Testimonial.objects.all().order_by('-id')
     blog = Blog.objects.all().order_by('-id')
     partners = Partners.objects.all().order_by('-id')
-    return render(request,'index.html',{'course':course,'instructor':instructor, 'testimonial':testimonial,'blog':blog,'partners':partners})
+    gallery = Gallery.objects.all().order_by('-id')
+    return render(request,'index.html',{'course':course,'instructor':instructor, 'testimonial':testimonial,'blog':blog,'partners':partners,'gallery':gallery})
 
 
 def admin_dashboard(request):
@@ -151,6 +152,7 @@ def update_testimonial(request, pk):
     else:
         form = TestimonialForm(instance=testimonial)
     return render(request, 'admin_pages/update_testimonial.html', {'form': form})
+
 
 @login_required(login_url='user_login')
 def delete_testimonial(request, pk):
@@ -270,6 +272,43 @@ def delete_blog(request,id):
     blog.delete()
     return redirect('view_blog')
 
+
+
+@login_required(login_url='user_login')
+def add_event(request):
+    if request.method == 'POST':
+        form = EventForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('view_event') 
+    else:
+        form = EventForm()
+
+    return render(request, 'admin_pages/add_event.html', {'form': form})
+
+@login_required(login_url='user_login')
+def view_event(request):
+    event = Event.objects.all().order_by('-id')
+    return render(request,'admin_pages/view_event.html',{'event':event})
+
+@login_required(login_url='user_login')
+def update_event(request, id):
+    event = get_object_or_404(Event, id=id)  # <-- Was TeamMembers
+    if request.method == 'POST':
+        form = EventForm(request.POST, request.FILES, instance=event)
+        if form.is_valid():
+            form.save()
+            return redirect('view_event')
+    else:
+        form = EventForm(instance=event)
+    return render(request, 'admin_pages/update_event.html', {'form': form, 'event': event})
+
+@login_required(login_url='user_login')
+def delete_event(request,id):
+    event = Event.objects.get(id=id)
+    event.delete()
+    return redirect('view_event')
+
 @login_required(login_url='user_login')
 def add_service(request):
     if request.method == 'POST':
@@ -307,6 +346,18 @@ def delete_service(request,id):
     return redirect('view_service')
 
 
+def service_details(request, service_id):
+    service = get_object_or_404(Service, id=service_id)
+    
+    return render(request, 'service-details.html', {
+        'service': service,
+       
+    })
+
+def services(request):
+    service = Service.objects.all().order_by('-id')
+    return render(request, 'services.html', {'service': service})
+
 @login_required(login_url='user_login')
 def view_enquiries(request):
     enquiry = OfferEnquiry.objects.all().order_by('-id')
@@ -320,35 +371,94 @@ def delete_enquiry(request,id):
     return redirect('view_enquiries')
 
 
+@login_required(login_url='user_login')
+def add_gallery(request):
+    if request.method == 'POST':
+        form = GalleryForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('view_gallery') 
+    else:
+        form = GalleryForm()
+
+    return render(request, 'admin_pages/add_gallery.html', {'form': form})
+
+@login_required(login_url='user_login')
+def view_gallery(request):
+    gallery = Gallery.objects.all().order_by('-id')
+    return render(request,'admin_pages/view_gallery.html',{'gallery':gallery})
+
+
+@login_required(login_url='user_login')
+def update_gallery(request,id):
+    gallery = get_object_or_404(Gallery, id=id)
+    if request.method == 'POST':
+        form = TeamForm(request.POST, request.FILES, instance=gallery)
+        if form.is_valid():
+            form.save()
+            return redirect('view_gallery')
+    else:
+        form = TeamForm(instance=gallery)
+    return render(request, 'admin_pages/update_gallery.html', {'form': form, 'gallery': gallery})
+
+
+@login_required(login_url='user_login')
+def delete_gallery(request,id):
+    gallery = Gallery.objects.get(id=id)
+    gallery.delete()
+    return redirect('view_gallery')
+
 def about(request):
-    return render(request,'about.html')
+    gallery = Gallery.objects.all().order_by('-id')
+    return render(request,'about.html',{'gallery': gallery})
 
 def contact(request):
-    return render(request,'contact.html')
+    gallery = Gallery.objects.all().order_by('-id')
+    return render(request,'contact.html',{'gallery': gallery})
 
+def gallery(request):
+    images = Gallery.objects.all().order_by('-id')
+    gallery = Gallery.objects.all().order_by('-id')
+    return render(request,'gallery.html',{'images':images, 'gallery': gallery})
 
 def blog(request):
     blog = Blog.objects.all().order_by('-id')
-    return render(request,'blog.html',{'blog':blog})
+    gallery = Gallery.objects.all().order_by('-id')
+    return render(request,'blog.html',{'blog':blog, 'gallery': gallery})
 
 
 def courses(request):
+    gallery = Gallery.objects.all().order_by('-id')
     courses = CourseModel.objects.all().order_by('-id')
-    return render(request,'courses.html',{'courses':courses})
+    return render(request,'courses.html',{'courses':courses, 'gallery': gallery})
 
 
 def instructors(request):
+    gallery = Gallery.objects.all().order_by('-id')
     instructors = TeamMembers.objects.all().order_by('-id')
-    return render(request,'instructor.html',{'instructors':instructors})
+    return render(request,'instructor.html',{'instructors':instructors, 'gallery': gallery})
 
 
 def blog_details(request, id):
+    gallery = Gallery.objects.all().order_by('-id')
     blog = get_object_or_404(Blog, id=id)
-    return render(request, 'blog-details.html', {'blog': blog})
+    return render(request, 'blog-details.html', {'blog': blog,'gallery': gallery})
 
 
 def course_details(request, id):
+    gallery = Gallery.objects.all().order_by('-id')
     course = get_object_or_404(CourseModel, id=id)
-    return render(request,'courses_details.html', {'course': course})
+    return render(request,'courses_details.html', {'course': course,'gallery': gallery})
 
+
+def events(request):
+    gallery = Gallery.objects.all().order_by('-id')
+    events = Event.objects.all().order_by('-id')
+    return render(request, 'events.html', {'events': events,'gallery': gallery})
+
+
+def event_details(request, id):
+    gallery = Gallery.objects.all().order_by('-id')
+    events = get_object_or_404(Event, id=id)
+    return render(request, 'event-details.html', {'events': events, 'gallery': gallery})
 

@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+        <section class="page-header">
+            <div class="container">
+                <div class="page-header__content">
+                    <ul class="eduhive-breadcrumb list-unstyled">
+                        <li><span class="eduhive-breadcrumb__icon"><i class="icon-home"></i></span><a href="{% url 'index' %}">Home</a></li>
+                        <li><span>our Service</span></li>
+                        <li><span>Service Details</span></li>
+                    </ul><!-- /.eduhive-breadcrumb list-unstyled -->
+                    <h2 class="page-header__title">{{ service.heading }}</h2>
+                </div><!-- /.page-header__content -->
+            </div><!-- /.container -->
+            <img src="{% static 'assets/images/shapes/page-header-shape-1.png' %}" alt="shape" class="page-header__shape-one">
+            <img src="{% static 'assets/images/shapes/page-header-shape-2.png' %}" alt="shape" class="page-header__shape-two">
+            <div class="page-header__shape-three"></div><!-- /.page-header__shape-three -->
+            <div class="page-header__shape-four"></div><!-- /.page-header__shape-four -->
+        </section><!-- /.page-header -->
+
+        <section class="event-details section-space-top">
+            <div class="container">
+                <div class="row gutter-y-40">
+                    <div class="col-xl-8 col-lg-7">
+                        <div class="event-details__top wow fadeInUp" data-wow-duration="1500ms">
+                            
+                            <div class="event-details__image">
+                                <img src="{{ service.main_image.url }}" alt="{{ service.heading }}">
+                                
+                            </div><!-- /.event-details__image -->
+                            
+                            <h3 class="event-details__title event-details__title--top">
+                                {{ service.heading }}
+                            </h3><!-- /.event-details__title -->
+                            
+                            <div class="event-details__text-box">
+                                <p class="event-details__text">{{ service.details|safe }}</p>
+                            </div><!-- /.event-details__text-box -->
+                        </div><!-- /.event-details__top -->
+                    </div><!-- /.col-xl-8 col-lg-7 -->
+                </div><!-- /.row gutter-y-40 -->
+            </div><!-- /.container -->
+        </section><!-- /.event-details section-space-top -->
+        
+        
+
+        {% endblock %}

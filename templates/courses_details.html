@@ -66,12 +66,14 @@
                 <div class="course-details__info">
                     <h3 class="course-details__info__title">Course includes:</h3>
                     <ul class="course-details__info__list list-unstyled">
-                        <li><span>Level:</span> {{ course.level }}</li>
-                        <li><span>Duration:</span> {{ course.duration_months }} months</li>
-                        <li><span>Lessons:</span> {{ course.lessons }}</li>
-                        <li><span>Students:</span> {{ course.student_count }}</li>
-                        <li><span>Certifications:</span> {{ course.certification }}</li>
-                        <li><span>Language:</span> {{ course.language }}</li>
+                        <li><span>Level: </span> {{ course.level }}</li>
+                        <li><span>Duration: </span> {{ course.duration_months }} months</li>
+                        <li><span>Lessons: </span> {{ course.lessons }}</li>
+                        <li><span>Students: </span> {{ course.student_count }}</li>
+                        <li><span>Certifications: </span> {{ course.certification }}</li>
+                        <li><span>Language: </span> {{ course.language }}</li>
+                        <li><span>Next Batch: </span> {{ course.upcoming_batch }}</li>
+                        <li><span>Available Seats: </span> {{ course.seats_available }}</li>
                     </ul>
 
                     <div class="course-details__info__price">This course Fee ₹{{ course.course_fee }}</div>

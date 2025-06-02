@@ -1,5 +1,5 @@
 from django import forms
-from .models import CourseModel, Testimonial, TeamMembers, Partners, Blog, Service, OfferEnquiry
+from .models import CourseModel, Testimonial, TeamMembers, Partners, Blog, Service, OfferEnquiry, Event, Gallery
 
 
 class CourseForm(forms.ModelForm):
@@ -17,6 +17,11 @@ class TeamForm(forms.ModelForm):
         model = TeamMembers
         fields = '__all__'
  
+ 
+class GalleryForm(forms.ModelForm):
+    class Meta:
+        model = Gallery
+        fields = '__all__' 
         
 class PartnersForm(forms.ModelForm):
     class Meta:
@@ -39,4 +44,10 @@ class ServiceForm(forms.ModelForm):
 class OfferEnquiryForm(forms.ModelForm):
     class Meta:
         model = OfferEnquiry
+        fields = '__all__'
+        
+    
+class EventForm(forms.ModelForm):
+    class Meta:
+        model = Event
         fields = '__all__'

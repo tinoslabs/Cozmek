@@ -95,6 +95,16 @@
                     <p>Current Brochure: <a href="{{ course.course_brochure.url }}" target="_blank">Download</a></p>
                 {% endif %}
             </div>
+
+            <div class="form-group">
+            <label for="upcoming_batch">Upcoming Batch (Start Date)</label>
+            <input type="date" class="form-control" id="upcoming_batch" name="upcoming_batch" value="{{ course.upcoming_batch|date:'Y-m-d' }}">
+          </div>
+
+          <div class="form-group">
+            <label for="seats_available">Seats Available</label>
+            <input type="number" class="form-control" id="seats_available" name="seats_available" min="0" placeholder="e.g. 30" value="{{ course.seats_available }}">
+          </div>
         
             <button type="submit" class="btn btn-primary me-2">Submit</button>
         </form>

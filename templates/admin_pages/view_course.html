@@ -172,9 +172,11 @@
                         <th>Rating</th>
                         <th>Duration (Months)</th>
                         <th>Total Classes</th>
-                        {% comment %} <th>Details</th> {% endcomment %}
+                       
                         <th>Brochure</th>
                         <th>Video</th>
+                        <th>Next Batch</th>
+                        <th>Available Seats</th>
                         <th>Update</th>
                         <th>Delete</th>
                       </tr>
@@ -215,6 +217,16 @@
                             No Video
                           {% endif %}
                         </td>
+
+                        <td>
+                        {% if data.upcoming_batch %}
+                          {{ data.upcoming_batch|date:"Y-m-d" }}
+                        {% else %}
+                          Not Scheduled
+                        {% endif %}
+                      </td>
+
+                      <td>{{ data.seats_available }}</td>
                         <td>
                           <a href="{% url 'update_course' data.id %}">
                             <button class="btn btn-sm btn-info">

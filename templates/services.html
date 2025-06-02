@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+        <section class="page-header">
+            <div class="container">
+                <div class="page-header__content">
+                    <ul class="eduhive-breadcrumb list-unstyled">
+                        <li><span class="eduhive-breadcrumb__icon"><i class="icon-home"></i></span><a href="{% url 'index' %}">Home</a></li>
+                        <li><span>our service</span></li>
+                    </ul><!-- /.eduhive-breadcrumb list-unstyled -->
+                    <h2 class="page-header__title">our service</h2>
+                </div><!-- /.page-header__content -->
+            </div><!-- /.container -->
+            <img src="{% static 'assets/images/shapes/page-header-shape-1.png' %}" alt="shape" class="page-header__shape-one">
+            <img src="{% static 'assets/images/shapes/page-header-shape-2.png' %}" alt="shape" class="page-header__shape-two">
+            <div class="page-header__shape-three"></div><!-- /.page-header__shape-three -->
+            <div class="page-header__shape-four"></div><!-- /.page-header__shape-four -->
+        </section><!-- /.page-header -->
+
+        <section class="events-page section-space">
+            <div class="container">
+                <div class="row gutter-y-30">
+                    {% for s in service %}
+                    <div class="col-xl-4 col-md-6">
+                        <div class="event-card" data-wow-duration="1500ms" data-wow-delay="00ms">
+                            <div class="event-card__image" style="background-image: url('{{ s.main_image.url }}')">
+                                <a href="{% url 'service_details' s.id %}" class="event-card__image__link">
+                                    <span class="sr-only">{{ s.heading }}</span>
+                                </a>
+                            </div><!-- /.event-card__image -->
+                            <h3 class="event-card__title">
+                                <a href="{% url 'service_details' s.id %}">{{ s.heading }}</a>
+                            </h3>
+                            <div class="event-card__description">
+                                <p>{{ s.details|safe|truncatewords:10 }}</p>
+                            </div>
+                        </div><!-- /.event-card -->
+                    </div><!-- /.col-xl-4 col-md-6 -->
+                    {% endfor %}
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </section><!-- /.events-page section-space -->
+        
+
+        {% endblock %}

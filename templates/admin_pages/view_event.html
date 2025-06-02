@@ -1,0 +1,85 @@
+{% extends "admin_pages/base.html" %}
+{% load static %}
+
+{% block content %}
+ 
+            <div class="col-lg-11 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">View Events</h4>
+               
+                  <div class="table-responsive">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                            <th>Event Name</th>
+                            <th>Image</th>
+                            <th>Venue</th>
+                            <th>Address</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            {% comment %} <th>Location</th> {% endcomment %}
+                            {% comment %} <th>Details</th> {% endcomment %}
+                            <th>Update</th>
+                            <th>Delete</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      {% for details in event %}
+                        <tr>
+                          <td style="width: 150px; ">
+                            {{ details.event_heading }}
+                          </td>
+                          <td>
+                          {% if details.main_image %}
+                            <img src="{{ details.main_image.url }}" alt="Image" style="width: 100px; height: 100px;">
+                          {% else %}
+                            No Image
+                          {% endif %}
+                        </td>
+                          <td style="width: 150px; ">
+                            {{ details.venue }}
+                          </td>
+                          
+                          <td style="width: 150px; ">
+                            {{ details.address }}
+                          </td>
+
+                           <td style="width: 150px; ">
+                            {{ details.start_date }}
+                          </td>
+
+                           <td style="width: 150px; ">
+                            {{ details.end_date }}
+                          </td>
+
+                          {% comment %} <td style="width: 150px; ">
+                            {{ details.location }}
+                          </td> {% endcomment %}
+                         <td>
+                          <a href="{% url 'update_event' details.id %}">
+                            <button class="btn btn-sm btn-info">
+                              <i class="mdi mdi-cloud-upload" aria-hidden="true"></i>
+                            </button>
+                          </a>
+                        </td>
+                        <td>
+                          <a href="{% url 'delete_event' details.id %}">
+                            <button class="btn btn-sm btn-danger">
+                              <i class="mdi mdi-delete" aria-hidden="true"></i>
+                            </button>
+                          </a>
+                        </td>
+                        
+                          
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endblock %}

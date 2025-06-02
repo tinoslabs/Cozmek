@@ -111,7 +111,7 @@
                                 </li>
 
                                 <li>
-                                    <a href="{% url 'about' %}">About Us</a>
+                                    <a href="{% url 'about' %}">About</a>
                                 </li>
                                 <li class="dropdown">
                                     <a href="{% url 'instructors' %}">Instructors</a>
@@ -122,7 +122,20 @@
                                 </li>
                                 <li>
                                         <a href="{% url 'blog' %}">Blog</a>                                      
-                                    </li>
+                                </li>
+                                <li class="dropdown">
+                                        <a href="{% url 'blog' %}">Services</a>
+                                </li>
+
+                                <li class="dropdown">
+                                        <a href="{% url 'gallery' %}">Gallery</a>
+                                </li>
+
+                                <li class="dropdown">
+                                        <a href="{% url 'events' %}">Events</a>
+                                </li>
+
+                                
                                
                                 <li>
                                     <a href="{% url 'contact' %}">Contact</a>
@@ -226,23 +239,8 @@
                     <div class="col-xl-3 col-lg-4 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="00ms">
                         <div class="footer-widget footer-widget--about">
                             <h2 class="footer-widget__title">About Us</h2><!-- /.footer-widget__title -->
-                            <p class="footer-widget__about-text">Phasellus ultricies aliquam volutpat
-                                ullamcorper laoreet neque, a lacinia
-                                curabitur lacinia mollis</p><!-- /.footer-widget__about-text -->
-                            <ul class="footer-widget__info">
-                                <li>
-                                    <span class="footer-widget__info__icon"><i class="icon-location"></i></span>
-                                    <a href="">Kothamangalam, Ernakulam - 686673</a>
-                                </li>
-                                <li>
-                                    <span class="footer-widget__info__icon"><i class="icon-email"></i></span>
-                                    <a href="mailto:cozmekinfo@gmail.com">cozmekinfo@gmail.com</a>
-                                </li>
-                                <li>
-                                    <span class="footer-widget__info__icon"><i class="icon-telephone"></i></span>
-                                    <a href="tel:+7510747180">+91 7510747180</a>
-                                </li>
-                            </ul><!-- /.footer-widget__info -->
+                            <p class="footer-widget__about-text">We are Cozmek Private Limited, a research and development firm specializing in Artificial Intelligence. Our objective is to achieve worldwide prominence in AI-driven innovations via our AI Labs and Projects.</p><!-- /.footer-widget__about-text -->
+                            
                         </div><!-- /.footer-widget -->
                     </div><!-- /.col-xl-3 col-lg-4 -->
                     <div class="col-xl-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="100ms">
@@ -341,35 +339,17 @@
                     </div><!-- /.col-xl-3 col-md-4 col-sm-6 -->
                     <div class="col-xl-3 col-md-4 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="300ms">
                         <div class="footer-widget footer-widget--gallery">
-                            <h2 class="footer-widget__title">Our Gallery</h2><!-- /.footer-widget__title -->
+                            <h2 class="footer-widget__title">Our Gallery</h2>
                             <div class="footer-widget__gallery">
-                                <a href="" class="footer-widget__gallery__link">
-                                    <img src="{% static 'assets/images/gallery/footer-widget-gallery-1.jpg' %}" alt="footer-widget-gallery">
-                                    <span class="footer-widget__gallery__icon icon-plus"></span>
-                                </a><!-- /.footer-widget__gallery__link -->
-                                <a href="" class="footer-widget__gallery__link">
-                                    <img src="{% static 'assets/images/gallery/footer-widget-gallery-2.jpg' %}" alt="footer-widget-gallery">
-                                    <span class="footer-widget__gallery__icon icon-plus"></span>
-                                </a><!-- /.footer-widget__gallery__link -->
-                                <a href="" class="footer-widget__gallery__link">
-                                    <img src="{% static 'assets/images/gallery/footer-widget-gallery-3.jpg' %}" alt="footer-widget-gallery">
-                                    <span class="footer-widget__gallery__icon icon-plus"></span>
-                                </a><!-- /.footer-widget__gallery__link -->
-                                <a href="" class="footer-widget__gallery__link">
-                                    <img src="{% static 'assets/images/gallery/footer-widget-gallery-4.jpg' %}" alt="footer-widget-gallery">
-                                    <span class="footer-widget__gallery__icon icon-plus"></span>
-                                </a><!-- /.footer-widget__gallery__link -->
-                                <a href="" class="footer-widget__gallery__link">
-                                    <img src="{% static 'assets/images/gallery/footer-widget-gallery-5.jpg' %}" alt="footer-widget-gallery">
-                                    <span class="footer-widget__gallery__icon icon-plus"></span>
-                                </a><!-- /.footer-widget__gallery__link -->
-                                <a href="" class="footer-widget__gallery__link">
-                                    <img src="{% static 'assets/images/gallery/footer-widget-gallery-6.jpg' %}" alt="footer-widget-gallery">
-                                    <span class="footer-widget__gallery__icon icon-plus"></span>
-                                </a><!-- /.footer-widget__gallery__link -->
-                            </div><!-- /.footer-widget__gallery -->
-                        </div><!-- /.footer-widget -->
-                    </div><!-- /.col-xl-3 col-md-4 -->
+                                {% for img in gallery|slice:":6" %}  {# Limit to 6 images for footer #}
+                                    <a href="{% url 'gallery' %}" class="footer-widget__gallery__link">
+                                        <img src="{{ img.image.url }}" alt="footer-widget-gallery">
+                                        <span class="footer-widget__gallery__icon icon-plus"></span>
+                                    </a>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
                 </div><!-- /.row gutter-y-40 -->
             </div><!-- /.container -->
             <div class="main-footer__bottom">

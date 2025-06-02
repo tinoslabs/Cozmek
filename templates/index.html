@@ -114,7 +114,7 @@
                                     </li>
 
                                     <li>
-                                        <a href="{% url 'about' %}">About Us</a>
+                                        <a href="{% url 'about' %}">About</a>
                                     </li>
 
                                     <li>
@@ -129,6 +129,19 @@
                                         <a href="{% url 'blog' %}">Blog</a>
                                     </li>
 
+                                    <li class="dropdown">
+                                        <a href="{% url 'blog' %}">Services</a>
+                                    </li>
+
+                                    <li class="dropdown">
+                                        <a href="{% url 'gallery' %}">Gallery</a>
+                                    </li>
+
+                                    <li class="dropdown">
+                                        <a href="{% url 'events' %}">Events</a>
+                                    </li>
+
+                                    
                                     <li>
                                         <a href="{% url 'contact' %}">Contact</a>
                                     </li>
@@ -220,32 +233,23 @@
 </div>
 
 
+    <style>
+        body.modal-open {
+            overflow: auto !important;
+            padding-right: 0 !important;
+        }
+    </style>
 
 
-       <style>
-  body.modal-open {
-    overflow: auto !important;
-    padding-right: 0 !important;
-  }
-</style>
 
-{% comment %} <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const modalShown = sessionStorage.getItem('newsletterModalShown');
-    if (!modalShown) {
-      var myModal = new bootstrap.Modal(document.getElementById('newsletterModal'));
-      myModal.show();
-      sessionStorage.setItem('newsletterModalShown', 'true');
-    }
-  });
-</script> {% endcomment %}
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    var myModal = new bootstrap.Modal(document.getElementById('newsletterModal'));
-    myModal.show();
-  });
-</script>
+        <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            setTimeout(function () {
+            var myModal = new bootstrap.Modal(document.getElementById('newsletterModal'));
+            myModal.show();
+            }, 5000); // Delay popup by 5 seconds
+        });
+        </script>
 
 
         <section class="main-slider-one" id="home">
@@ -421,7 +425,7 @@
                                         <i class="icon-briefcase"></i>
                                     </span>
                                 </div><!-- /.course-category__card__icon-box -->
-                                <h4 class="course-category__card__title">Business Management</h4><!-- /.course-category__card__title -->
+                                <h4 class="course-category__card__title">Artificial intelligence</h4><!-- /.course-category__card__title -->
                             </div><!-- /.course-category__card__content -->
                         </div><!-- /.course-category__card -->
                     </div><!-- /.col-xl-3 col-lg-4 col-sm-6 -->
@@ -436,7 +440,7 @@
                                         <i class="icon-art-studies"></i>
                                     </span>
                                 </div><!-- /.course-category__card__icon-box -->
-                                <h4 class="course-category__card__title">Arts & Design</h4><!-- /.course-category__card__title -->
+                                <h4 class="course-category__card__title">Robotics </h4><!-- /.course-category__card__title -->
                             </div><!-- /.course-category__card__content -->
                         </div><!-- /.course-category__card -->
                     </div><!-- /.col-xl-3 col-lg-4 col-sm-6 -->
@@ -451,7 +455,7 @@
                                         <i class="icon-self-confidence"></i>
                                     </span>
                                 </div><!-- /.course-category__card__icon-box -->
-                                <h4 class="course-category__card__title">Personal Development</h4><!-- /.course-category__card__title -->
+                                <h4 class="course-category__card__title">Edtech and skill development </h4><!-- /.course-category__card__title -->
                             </div><!-- /.course-category__card__content -->
                         </div><!-- /.course-category__card -->
                     </div><!-- /.col-xl-3 col-lg-4 col-sm-6 -->
@@ -466,7 +470,7 @@
                                         <i class="icon-setting"></i>
                                     </span>
                                 </div><!-- /.course-category__card__icon-box -->
-                                <h4 class="course-category__card__title">IT & Software</h4><!-- /.course-category__card__title -->
+                                <h4 class="course-category__card__title">Application and software development </h4><!-- /.course-category__card__title -->
                             </div><!-- /.course-category__card__content -->
                         </div><!-- /.course-category__card -->
                     </div><!-- /.col-xl-3 col-lg-4 col-sm-6 -->
@@ -481,7 +485,7 @@
                                         <i class="icon-healthcare"></i>
                                     </span>
                                 </div><!-- /.course-category__card__icon-box -->
-                                <h4 class="course-category__card__title">Health & Fitness</h4><!-- /.course-category__card__title -->
+                                <h4 class="course-category__card__title">Innovation and Research Platform</h4><!-- /.course-category__card__title -->
                             </div><!-- /.course-category__card__content -->
                         </div><!-- /.course-category__card -->
                     </div><!-- /.col-xl-3 col-lg-4 col-sm-6 -->
@@ -511,7 +515,7 @@
                                         <i class="icon-clapperboard"></i>
                                     </span>
                                 </div><!-- /.course-category__card__icon-box -->
-                                <h4 class="course-category__card__title">Video & Photography</h4><!-- /.course-category__card__title -->
+                                <h4 class="course-category__card__title">AR/VR</h4><!-- /.course-category__card__title -->
                             </div><!-- /.course-category__card__content -->
                         </div><!-- /.course-category__card -->
                     </div><!-- /.col-xl-3 col-lg-4 col-sm-6 -->
@@ -535,6 +539,32 @@
             <div class="course-category__shape-one"></div><!-- /.course-category__shape-one -->
             <div class="course-category__shape-two"></div><!-- /.course-category__shape-two -->
         </section><!-- /.course-category section-space -->
+
+        <style>
+            .course-category__card {
+                    height: 250px; /* Adjust as per your design */
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    overflow: hidden;
+                }
+
+                .course-category__card__inner {
+                    flex: 1 0 auto;
+                }
+
+                .course-category__card__content {
+                    flex-shrink: 0;
+                    padding: 15px;
+                    text-align: center;
+                }
+
+                .course-category__card__title {
+                    font-size: 18px;
+                    line-height: 24px;
+                    min-height: 50px; /* Prevent short titles from shifting content */
+                }
+        </style>
 
         <section class="about-one section-space" id="about">
             <div class="about-one__bg" style="background-image: url(assets/images/shapes/about-bg-1-1.png);"></div><!-- /.about-one__bg -->
@@ -571,7 +601,7 @@
                                 <h3 class="sec-title__title">Mastering the Future <br> <span class="sec-title__title__shape">AI Pioneering </span> <span class="sec-title__title__text">Excellence</span></h3><!-- /.sec-title__title -->
                             </div><!-- /.sec-title -->
                             <div class="about-one__description wow fadeInUp" data-wow-duration="1500ms">
-                                <p class="about-one__text">Cozmek serves as your gateway to a realm of transformative education, aiming to revolutionize the learning experience by providing a diverse range of courses that empower individuals of all age groups. Embrace the transformative force of education and unleash your maximum potential with Cozmek.</p><!-- /.about-one__text -->
+                                <p class="about-one__text">Cozmek is a cutting-edge Artificial Intelligence (AI) research and development company headquartered in Kothamangalam, Ernakulam, Kerala. Driven by innovation and a passion for the future, Cozmek is dedicated to building intelligent solutions that empower industries, institutions, and individuals.<br>Our work spans across AI-driven product development, real-time applications, educational initiatives, and next-generation technology integration. We specialize in transforming visionary ideas into impactful solutions, from automation systems and smart tools to immersive learning platforms and AI-powered applications.</p><!-- /.about-one__text -->
                             </div><!-- /.about-one__description -->
                             <div class="about-one__inner wow fadeInUp" data-wow-duration="1500ms">
                                 <ul class="about-one__info list-unstyled">
@@ -689,7 +719,7 @@
                                         {{ c.student_count|default:"0" }} Students
                                     </div>
                                 </div>
-                                <h4 class="course-card__price">₹<span>{{ c.course_fee|default:"0.00" }}</span></h4>
+                                {% comment %} <h4 class="course-card__price">₹<span>{{ c.course_fee|default:"0.00" }}</span></h4> {% endcomment %}
                             </div>
                             <div class="course-card__hover" style="background-image: url({% static 'assets/images/shapes/course-card-bg-1-1.png' %});">
                                 <div class="course-card__hover__content">
@@ -1220,21 +1250,7 @@
                         <div class="footer-widget footer-widget--about">
                             <h2 class="footer-widget__title">About Us</h2><!-- /.footer-widget__title -->
                             <p class="footer-widget__about-text">We are Cozmek Private Limited, a research and development firm specializing in Artificial Intelligence. Our objective is to achieve worldwide prominence in AI-driven innovations via our AI Labs and Projects. </p><!-- /.footer-widget__about-text -->
-                            <ul class="footer-widget__info">
-                                <li>
-                                    <span class="footer-widget__info__icon"><i class="icon-location"></i></span>
-                                    <a href="https://www.google.com/maps">Kothamangalam, Ernakulam - 686673</a>
-                                </li>
-                                <li>
-                                    <span class="footer-widget__info__icon"><i class="icon-email"></i></span>
-                                    <a href="mailto:cozmekinfo@gmail.com">cozmekinfo@gmail.com</a>
-                                </li>
-                                
-                                <li>
-                                    <span class="footer-widget__info__icon"><i class="icon-telephone"></i></span>
-                                    <a href="tel:+917510747180">+917510747180</a>
-                                </li>
-                            </ul><!-- /.footer-widget__info -->
+                            
                         </div><!-- /.footer-widget -->
                     </div><!-- /.col-xl-3 col-lg-4 -->
                     <div class="col-xl-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="100ms">
@@ -1242,23 +1258,23 @@
                             <h2 class="footer-widget__title">Quick Link</h2><!-- /.footer-widget__title -->
                             <ul class="list-unstyled footer-widget__links">
                                 <li>
-                                    <a href="">
+                                    <a href="{% url 'index' %}">
                                         <span class="footer-widget__links__icon">
                                             <i class="icon-double-arrow"></i>
                                         </span>
-                                        About Eduhive
+                                        Home
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="">
+                                    <a href="{% url 'about' %}">
                                         <span class="footer-widget__links__icon">
                                             <i class="icon-double-arrow"></i>
                                         </span>
-                                        Our Courses
+                                        About
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="">
+                                    <a href="{% url 'instructors' %}">
                                         <span class="footer-widget__links__icon">
                                             <i class="icon-double-arrow"></i>
                                         </span>
@@ -1266,21 +1282,14 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="">
+                                    <a href="{% url 'courses' %}">
                                         <span class="footer-widget__links__icon">
                                             <i class="icon-double-arrow"></i>
                                         </span>
-                                        Instructor Details
+                                        Courses
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="">
-                                        <span class="footer-widget__links__icon">
-                                            <i class="icon-double-arrow"></i>
-                                        </span>
-                                        Contact Us
-                                    </a>
-                                </li>
+                               
                             </ul><!-- /.list-unstyled footer-widget__links -->
                         </div><!-- /.footer-widget -->
                     </div><!-- /.col-xl-3 col-md-4 col-sm-6 -->
@@ -1289,79 +1298,55 @@
                             <h2 class="footer-widget__title">Courses</h2><!-- /.footer-widget__title -->
                             <ul class="list-unstyled footer-widget__links">
                                 <li>
-                                    <a href="">
+                                    <a href="{% url 'blog' %}">
                                         <span class="footer-widget__links__icon">
                                             <i class="icon-double-arrow"></i>
                                         </span>
-                                        Apps Development
+                                        Blog
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="">
+                                    <a href="{% url 'services' %}">
                                         <span class="footer-widget__links__icon">
                                             <i class="icon-double-arrow"></i>
                                         </span>
-                                        Digital Marketing
+                                        Service
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="">
+                                    <a href="{% url 'events' %}">
                                         <span class="footer-widget__links__icon">
                                             <i class="icon-double-arrow"></i>
                                         </span>
-                                        Graphics Design
+                                        Events
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="">
+                                    <a href="{% url 'contact' %}">
                                         <span class="footer-widget__links__icon">
                                             <i class="icon-double-arrow"></i>
                                         </span>
-                                        UI/UX Design
+                                        Contact Us
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="">
-                                        <span class="footer-widget__links__icon">
-                                            <i class="icon-double-arrow"></i>
-                                        </span>
-                                        Data Science
-                                    </a>
-                                </li>
+                                
                             </ul><!-- /.list-unstyled footer-widget__links -->
                         </div><!-- /.footer-widget -->
                     </div><!-- /.col-xl-3 col-md-4 col-sm-6 -->
                     <div class="col-xl-3 col-md-4 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="300ms">
                         <div class="footer-widget footer-widget--gallery">
-                            <h2 class="footer-widget__title">Our Gallery</h2><!-- /.footer-widget__title -->
+                            <h2 class="footer-widget__title">Our Gallery</h2>
                             <div class="footer-widget__gallery">
-                                <a href="" class="footer-widget__gallery__link">
-                                    <img src="{% static 'assets/images/gallery/footer-widget-gallery-1.jpg' %}" alt="footer-widget-gallery">
-                                    <span class="footer-widget__gallery__icon icon-plus"></span>
-                                </a><!-- /.footer-widget__gallery__link -->
-                                <a href="" class="footer-widget__gallery__link">
-                                    <img src="{% static 'assets/images/gallery/footer-widget-gallery-2.jpg' %}" alt="footer-widget-gallery">
-                                    <span class="footer-widget__gallery__icon icon-plus"></span>
-                                </a><!-- /.footer-widget__gallery__link -->
-                                <a href="" class="footer-widget__gallery__link">
-                                    <img src="{% static 'assets/images/gallery/footer-widget-gallery-3.jpg' %}" alt="footer-widget-gallery">
-                                    <span class="footer-widget__gallery__icon icon-plus"></span>
-                                </a><!-- /.footer-widget__gallery__link -->
-                                <a href="" class="footer-widget__gallery__link">
-                                    <img src="{% static 'assets/images/gallery/footer-widget-gallery-4.jpg' %}" alt="footer-widget-gallery">
-                                    <span class="footer-widget__gallery__icon icon-plus"></span>
-                                </a><!-- /.footer-widget__gallery__link -->
-                                <a href="" class="footer-widget__gallery__link">
-                                    <img src="{% static 'assets/images/gallery/footer-widget-gallery-5.jpg' %}" alt="footer-widget-gallery">
-                                    <span class="footer-widget__gallery__icon icon-plus"></span>
-                                </a><!-- /.footer-widget__gallery__link -->
-                                <a href="" class="footer-widget__gallery__link">
-                                    <img src="{% static 'assets/images/gallery/footer-widget-gallery-6.jpg' %}" alt="footer-widget-gallery">
-                                    <span class="footer-widget__gallery__icon icon-plus"></span>
-                                </a><!-- /.footer-widget__gallery__link -->
-                            </div><!-- /.footer-widget__gallery -->
-                        </div><!-- /.footer-widget -->
-                    </div><!-- /.col-xl-3 col-md-4 -->
+                                {% for img in gallery|slice:":6" %}  {# Limit to 6 images for footer #}
+                                    <a href="{% url 'gallery' %}" class="footer-widget__gallery__link">
+                                        <img src="{{ img.image.url }}" alt="footer-widget-gallery">
+                                        <span class="footer-widget__gallery__icon icon-plus"></span>
+                                    </a>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+<!-- /.col-xl-3 col-md-4 -->
                 </div><!-- /.row gutter-y-40 -->
             </div><!-- /.container -->
             <div class="main-footer__bottom">
