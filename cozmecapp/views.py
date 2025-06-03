@@ -348,6 +348,7 @@ def delete_service(request,id):
 
 
 def service_details(request, service_id):
+    
     service = get_object_or_404(Service, id=service_id)
     
     return render(request, 'service-details.html', {
@@ -358,7 +359,8 @@ def service_details(request, service_id):
 def services(request):
     service = Service.objects.all().order_by('-id')
     gallery = Gallery.objects.all().order_by('-id')
-    return render(request, 'services.html', {'service': service,'gallery': gallery})
+    course = CourseModel.objects.all().order_by('-id')
+    return render(request, 'services.html', {'service': service,'gallery': gallery,'course': course})
 
 @login_required(login_url='user_login')
 def view_enquiries(request):
@@ -412,55 +414,65 @@ def delete_gallery(request,id):
 
 def about(request):
     gallery = Gallery.objects.all().order_by('-id')
-    return render(request,'about.html',{'gallery': gallery})
+    course = CourseModel.objects.all().order_by('-id')
+    return render(request,'about.html',{'gallery': gallery,'course': course})
 
 def contact(request):
     gallery = Gallery.objects.all().order_by('-id')
-    return render(request,'contact.html',{'gallery': gallery})
+    course = CourseModel.objects.all().order_by('-id')
+    return render(request,'contact.html',{'gallery': gallery,'course': course})
 
 def gallery(request):
     images = Gallery.objects.all().order_by('-id')
     gallery = Gallery.objects.all().order_by('-id')
-    return render(request,'gallery.html',{'images':images, 'gallery': gallery})
+    course = CourseModel.objects.all().order_by('-id')
+    return render(request,'gallery.html',{'images':images, 'gallery': gallery,'course': course})
 
 def blog(request):
     blog = Blog.objects.all().order_by('-id')
     gallery = Gallery.objects.all().order_by('-id')
-    return render(request,'blog.html',{'blog':blog, 'gallery': gallery})
+    course = CourseModel.objects.all().order_by('-id')
+    return render(request,'blog.html',{'blog':blog, 'gallery': gallery,'course': course})
 
 
 def courses(request):
     gallery = Gallery.objects.all().order_by('-id')
     courses = CourseModel.objects.all().order_by('-id')
-    return render(request,'courses.html',{'courses':courses, 'gallery': gallery})
+    course = CourseModel.objects.all().order_by('-id')
+    return render(request,'courses.html',{'courses':courses, 'gallery': gallery,'course': course})
 
 
 def instructors(request):
     gallery = Gallery.objects.all().order_by('-id')
     instructors = TeamMembers.objects.all().order_by('-id')
-    return render(request,'instructor.html',{'instructors':instructors, 'gallery': gallery})
+    course = CourseModel.objects.all().order_by('-id')
+    return render(request,'instructor.html',{'instructors':instructors, 'gallery': gallery,'course': course})
 
 
 def blog_details(request, id):
     gallery = Gallery.objects.all().order_by('-id')
     blog = get_object_or_404(Blog, id=id)
-    return render(request, 'blog-details.html', {'blog': blog,'gallery': gallery})
+    course = CourseModel.objects.all().order_by('-id')
+    return render(request, 'blog-details.html', {'blog': blog,'gallery': gallery,'course': course})
 
 
 def course_details(request, id):
     gallery = Gallery.objects.all().order_by('-id')
     course = get_object_or_404(CourseModel, id=id)
-    return render(request,'courses_details.html', {'course': course,'gallery': gallery})
+    course = CourseModel.objects.all().order_by('-id')
+    return render(request,'courses_details.html', {'course': course,'gallery': gallery,'course': course})
 
 
 def events(request):
     gallery = Gallery.objects.all().order_by('-id')
     events = Event.objects.all().order_by('-id')
-    return render(request, 'events.html', {'events': events,'gallery': gallery})
+    course = CourseModel.objects.all().order_by('-id')
+    return render(request, 'events.html', {'events': events,'gallery': gallery,'course': course})
 
 
 def event_details(request, id):
     gallery = Gallery.objects.all().order_by('-id')
     events = get_object_or_404(Event, id=id)
-    return render(request, 'event-details.html', {'events': events, 'gallery': gallery})
+    course = CourseModel.objects.all().order_by('-id')
+    return render(request, 'event-details.html', {'events': events, 'gallery': gallery,'course': course})
 

@@ -4,20 +4,25 @@
 {% block content %}
         
 
-        <section class="page-header" style="background-image: url('{% static "assets/images/header.jpg" %}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+        <section class="cta-one">
             <div class="container">
-                <div class="page-header__content">
-                    <ul class="eduhive-breadcrumb list-unstyled">
-                        <li><span class="eduhive-breadcrumb__icon"><i class="icon-home"></i></span><a href="{% url 'index' %}">Home</a></li>
-                        <li><span>Blog Details</span></li>
-                    </ul>
-                    <h2 class="page-header__title">Blog Details</h2>
-                </div>
-            </div>
-            <!-- Optional decorative shapes -->
-           
-            <div class="page-header__shape-three"></div>
-            <div class="page-header__shape-four"></div>
+                <div class="cta-one__content wow fadeInUp" data-wow-duration="1500ms">
+                    <h2 class="cta-one__title">Blog Details<br>
+                       </h2><!-- /.cta-one__title -->
+                    <a href="{% url 'contact' %}" class="eduhive-btn">
+                        <span>get started now</span>
+                        <span class="eduhive-btn__icon">
+                            <span class="eduhive-btn__icon__inner"><i class="icon-right-arrow"></i></span>
+                        </span>
+                    </a><!-- /.eduhive-btn -->
+                </div><!-- /.cta-one__conten -->
+            </div><!-- /.container -->
+            <img src="{% static 'assets/images/cta-1-1.png' %}" alt="shape" class="cta-one__image-one">
+            <img src="{% static 'assets/images/cta-1-2.png' %}" alt="shape" class="cta-one__image-two">
+            <img src="{% static 'assets/images/shapes/cta-shape-1-1.png' %}" alt="shape" class="cta-one__shape-one">
+            <img src="{% static 'assets/images/shapes/cta-shape-1-1.png' %}" alt="shape" class="cta-one__shape-two">
+            <div class="cta-one__shape-box-one"></div><!-- /.cta-one__shape-box-one -->
+            <div class="cta-one__shape-box-two wow fadeInRight" data-wow-duration="1500ms"></div><!-- /.cta-one__shape-box-two -->
         </section>
 
         <section class="blog-details-page section-space">
