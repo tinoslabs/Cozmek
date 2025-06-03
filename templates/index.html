@@ -38,7 +38,7 @@
     
 </head>
 
-<body class="custom-cursor">
+<body class="custom-cursor"  style="overflow-x: hidden;">
 
     <div class="custom-cursor__cursor"></div>
     <div class="custom-cursor__cursor-two"></div>
@@ -65,7 +65,7 @@
                                 <span class="topbar__info__icon">
                                     <i class="icon-telephone"></i>
                                 </span>
-                                <a href="tel:+7510747180">+917510747180</a>
+                                <a href="tel:+8606459768">+91 86064 59768</a>
                             </li>
                             <li>
                                 <span class="topbar__info__icon">
@@ -574,16 +574,7 @@
                         <div class="about-one__image">
                             <div class="about-one__image__one">
                                 <img src="{% static 'assets/images/about-1-1.jpg' %}" alt="about">
-                                {% comment %} <div class="about-one__video">
-                                    <a href="https://www.youtube.com/watch?v=h9MbznbxlLc" class="about-one__video__btn video-btn video-popup">
-                                        <i class="icon-play"></i>
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                    </a><!-- /.about-one__video-btn -->
-                                    <p class="about-one__video__text">play now</p><!-- /.about-one__video__text -->
-                                </div><!-- /.about-one__video --> {% endcomment %}
+                                
                             </div><!-- /.about-one__image__one -->
                             <div class="about-one__image__two">
                                 <img src="{% static 'assets/images/about-1-2.jpg' %}" alt="about">
@@ -934,22 +925,23 @@
                         }
                     }'>
                     
+                    {% for member in instructor %}
                     <div class="item">
-                        <div class="instructor-card wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='100ms'>
+                        <div class="instructor-card wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="{{ forloop.counter0 }}00ms">
                             <div class="instructor-card__image">
-                                <img src="{% static 'assets/images/instructor-1-2.jpg' %}" alt="aleesha brown">
+                                <img src="{{ member.image.url }}" alt="{{ member.name }}">
                                 <div class="instructor-card__hover">
                                     <div class="instructor-card__info">
-                                        
                                         <h3 class="instructor-card__name">
-                                            <a href="instructor-details.html">aleesha brown</a>
-                                        </h3><!-- /.instructor-card__name -->
-                                        <h6 class="instructor-card__designation">Web Developer</h6><!-- /.instructor-card__designation -->
-                                    </div><!-- /.instructor-card__info -->
-                                </div><!-- /.instructor-card__hover -->
-                            </div><!-- /.instructor-card__image -->
-                        </div><!-- /.instructor-card -->
-                    </div><!-- /.item -->   
+                                            <a href="#">{{ member.name }}</a>
+                                        </h3>
+                                        <h6 class="instructor-card__designation">{{ member.designation }}</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
                 </div><!-- /.instructors-one__carousel -->
             </div><!-- /.container -->
             <img src="{% static 'assets/images/shapes/instructors-shape-1-1.png' %}" alt="shape" class="instructors-one__shape-one">
@@ -1046,7 +1038,7 @@
             <div class="container">
                 <div class="cta-one__content wow fadeInUp" data-wow-duration="1500ms">
                     <h2 class="cta-one__title">Get Your Quality Skills Certificate <br>
-                        Through Kozmek</h2><!-- /.cta-one__title -->
+                        Through Cozmek</h2><!-- /.cta-one__title -->
                     <a href="{% url 'contact' %}" class="eduhive-btn">
                         <span>get started now</span>
                         <span class="eduhive-btn__icon">
@@ -1297,38 +1289,14 @@
                         <div class="footer-widget footer-widget--links">
                             <h2 class="footer-widget__title">Courses</h2><!-- /.footer-widget__title -->
                             <ul class="list-unstyled footer-widget__links">
-                                <li>
-                                    <a href="{% url 'blog' %}">
-                                        <span class="footer-widget__links__icon">
-                                            <i class="icon-double-arrow"></i>
-                                        </span>
-                                        Blog
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{% url 'services' %}">
-                                        <span class="footer-widget__links__icon">
-                                            <i class="icon-double-arrow"></i>
-                                        </span>
-                                        Service
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{% url 'events' %}">
-                                        <span class="footer-widget__links__icon">
-                                            <i class="icon-double-arrow"></i>
-                                        </span>
-                                        Events
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{% url 'contact' %}">
-                                        <span class="footer-widget__links__icon">
-                                            <i class="icon-double-arrow"></i>
-                                        </span>
-                                        Contact Us
-                                    </a>
-                                </li>
+                                {% for c in course|slice:":4" %}
+                                    <li>
+                                        <a href="{% url 'courses' %}">
+                                            <span class="footer-widget__links__icon"><i class="icon-double-arrow"></i></span>
+                                            {{ c.course_name }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
                                 
                             </ul><!-- /.list-unstyled footer-widget__links -->
                         </div><!-- /.footer-widget -->
@@ -1382,11 +1350,6 @@
                     <span class="mobile-nav__contact__icon"><i class="fa fa-envelope"></i></span>
                     <a href="mailto:needhelp@eduhive.com">cozmekinfo@gmail.com</a>
                 </li>
-
-            
-
-
-
                 <li>
                     <span class="mobile-nav__contact__icon"><i class="fa fa-phone-alt"></i></span>
                     <a href="tel:+917510747180">+917510747180</a>

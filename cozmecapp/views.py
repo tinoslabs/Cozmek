@@ -57,6 +57,7 @@ def index(request):
     blog = Blog.objects.all().order_by('-id')
     partners = Partners.objects.all().order_by('-id')
     gallery = Gallery.objects.all().order_by('-id')
+    
     return render(request,'index.html',{'course':course,'instructor':instructor, 'testimonial':testimonial,'blog':blog,'partners':partners,'gallery':gallery})
 
 
@@ -356,7 +357,8 @@ def service_details(request, service_id):
 
 def services(request):
     service = Service.objects.all().order_by('-id')
-    return render(request, 'services.html', {'service': service})
+    gallery = Gallery.objects.all().order_by('-id')
+    return render(request, 'services.html', {'service': service,'gallery': gallery})
 
 @login_required(login_url='user_login')
 def view_enquiries(request):

@@ -2,62 +2,30 @@
 {% load static %}
 
 {% block content %}
-        <section class="page-header">
+        <section class="cta-one">
             <div class="container">
-                <div class="page-header__content">
-                    <ul class="eduhive-breadcrumb list-unstyled">
-                        <li><span class="eduhive-breadcrumb__icon"><i class="icon-home"></i></span><a href="index.html">Home</a></li>
-                        <li><span>our events</span></li>
-                    </ul><!-- /.eduhive-breadcrumb list-unstyled -->
-                    <h2 class="page-header__title">our events</h2>
-                </div><!-- /.page-header__content -->
+                <div class="cta-one__content wow fadeInUp" data-wow-duration="1500ms">
+                    <h2 class="cta-one__title">Upcoming Events <br>
+                       </h2><!-- /.cta-one__title -->
+                    <a href="{% url 'contact' %}" class="eduhive-btn">
+                        <span>get started now</span>
+                        <span class="eduhive-btn__icon">
+                            <span class="eduhive-btn__icon__inner"><i class="icon-right-arrow"></i></span>
+                        </span>
+                    </a><!-- /.eduhive-btn -->
+                </div><!-- /.cta-one__conten -->
             </div><!-- /.container -->
-            <img src="{% static  'assets/images/shapes/page-header-shape-1.png' %}" alt="shape" class="page-header__shape-one">
-            <img src="{% static  'assets/images/shapes/page-header-shape-2.png' %}" alt="shape" class="page-header__shape-two">
-            <div class="page-header__shape-three"></div><!-- /.page-header__shape-three -->
-            <div class="page-header__shape-four"></div><!-- /.page-header__shape-four -->
-        </section><!-- /.page-header -->
+            <img src="{% static 'assets/images/cta-1-1.png' %}" alt="shape" class="cta-one__image-one">
+            <img src="{% static 'assets/images/cta-1-2.png' %}" alt="shape" class="cta-one__image-two">
+            <img src="{% static 'assets/images/shapes/cta-shape-1-1.png' %}" alt="shape" class="cta-one__shape-one">
+            <img src="{% static 'assets/images/shapes/cta-shape-1-1.png' %}" alt="shape" class="cta-one__shape-two">
+            <div class="cta-one__shape-box-one"></div><!-- /.cta-one__shape-box-one -->
+            <div class="cta-one__shape-box-two wow fadeInRight" data-wow-duration="1500ms"></div><!-- /.cta-one__shape-box-two -->
+        </section><!-- /.cta-one -->
 
         <section class="events-page section-space">
             <div class="container">
-                {% comment %} <div class="row gutter-y-30">
-                    <div class="col-xl-4 col-md-6">
-                        <div class="event-card data-wow-duration='1500ms' data-wow-delay='00ms'">
-                            <div class="event-card__image" style='background-image: url(assets/images/events/event-1-1.jpg)'>
-                                <a href="event-details.html" class="event-card__image__link">
-                                    <span class="sr-only">Starting SEO as your Home Based Business</span><!-- /.sr-only -->
-                                </a><!-- /.event-card__image__link -->
-                                <div class="event-card__image__inner">
-                                    <div class="event-card__time">
-                                        <span class="event-card__time__icon">
-                                            <i class="icon-clock-1"></i>
-                                        </span>
-                                        <p class="event-card__time__text">
-                                            <span>5:00 am</span> <span class="event-card__time__divider">-</span> <span>7:00 am</span>
-                                        </p>
-                                    </div><!-- /.event-card__time -->
-                                    <div class="event-card__date">
-                                        <span>25</span>
-                                        <span>Dec</span>
-                                    </div><!-- /.event-card__date -->
-                                </div><!-- /.event-card__image__inner -->
-                            </div><!-- /.event-card__image -->
-                            <h3 class="event-card__title">
-                                <a href="event-details.html">Starting SEO as your Home Based Business</a>
-                            </h3><!-- /.event-card__title -->
-                            <div class="event-card__description">
-                                <p>Aonsectetur adipiscing elit Aenean scele risque augue vitae consequat</p>
-                            </div><!-- /.event-card__description -->
-                            <div class="event-card__location">
-                                <span class="event-card__location__icon">
-                                    <i class="icon-location"></i>
-                                </span>
-                                <a href="" class="event-card__location__text">2683 Smith Street, Boston - 02110</a>
-                            </div><!-- /.event-card__location -->
-                        </div><!-- /.event-card -->
-                    </div><!-- /.col-xl-4 col-md-6 -->
                 
-                </div><!-- /.row --> {% endcomment %}
                 <div class="row gutter-y-30">
                     {% for event in events %}
                     <div class="col-xl-4 col-md-6">

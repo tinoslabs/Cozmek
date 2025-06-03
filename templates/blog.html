@@ -3,21 +3,21 @@
 
 {% block content %}
 
-        <section class="page-header">
+        <section class="page-header" style="background-image: url('{% static "assets/images/header.jpg" %}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
             <div class="container">
                 <div class="page-header__content">
                     <ul class="eduhive-breadcrumb list-unstyled">
                         <li><span class="eduhive-breadcrumb__icon"><i class="icon-home"></i></span><a href="{% url 'index' %}">Home</a></li>
-                        <li><span>Our blog</span></li>
-                    </ul><!-- /.eduhive-breadcrumb list-unstyled -->
+                        <li><span>Blogs</span></li>
+                    </ul>
                     <h2 class="page-header__title">Our Blogs</h2>
-                </div><!-- /.page-header__content -->
-            </div><!-- /.container -->
-            <img src="{% static 'assets/images/shapes/page-header-shape-1.png' %}" alt="shape" class="page-header__shape-one">
-            <img src="{% static 'assets/images/shapes/page-header-shape-2.png' %}" alt="shape" class="page-header__shape-two">
-            <div class="page-header__shape-three"></div><!-- /.page-header__shape-three -->
-            <div class="page-header__shape-four"></div><!-- /.page-header__shape-four -->
-        </section><!-- /.page-header -->
+                </div>
+            </div>
+            <!-- Optional decorative shapes -->
+           
+            <div class="page-header__shape-three"></div>
+            <div class="page-header__shape-four"></div>
+        </section>
 
         <section class="blog-page section-space">
             <div class="container">
