@@ -29,7 +29,7 @@
         <div class="row gutter-y-40">
             <div class="col-xl-8 col-lg-7">
                 <div class="course-details__inner">
-                    <h3 class="course-details__title">{{ course.title }}</h3>
+                    <h3 class="course-details__title">{{ courses.title }}</h3>
 
                     <div class="course-details__info-wrapper">
                         
@@ -37,17 +37,17 @@
 
                         <div class="course-details__class">
                             <span class="course-details__class__icon"><i class="icon-video"></i></span>
-                            <p class="course-details__class__text">{{ course.total_classes }} Classes</p>
+                            <p class="course-details__class__text">{{ courses.total_classes }} Classes</p>
                         </div>
 
                         <div class="course-details__review">
                             <span class="course-details__review__icon"><i class="icon-star"></i></span>
-                            <p class="course-details__review__text"><span>{{ course.rating }}</span> <span>(Based on Reviews)</span></p>
+                            <p class="course-details__review__text"><span>{{ courses.rating }}</span> <span>(Based on Reviews)</span></p>
                         </div>
                     </div>
 
                     <div class="course-details__image">
-                        <img src="{{ course.image.url }}" alt="{{ course.course_name }}">
+                        <img src="{{ courses.image.url }}" alt="{{ courses.course_name }}">
                         {% comment %} {% if course.course_video %}
                             <a href="{{ course.course_video.url }}" class="course-details__video-btn video-btn video-popup">
                                 <i class="icon-play"></i>
@@ -60,7 +60,7 @@
                     <div class="course-details__description wow fadeInUp" data-wow-duration="1500ms">
                         <h3 class="course-details__title course-details__title--description">Course Descriptions</h3>
                         <div class="course-details__description__inner">
-                            <p class="course-details__description__text">{{ course.coaching_details|safe }}</p>
+                            <p class="course-details__description__text">{{ courses.coaching_details|safe }}</p>
                         </div>
                     </div>
                 </div>
@@ -70,20 +70,20 @@
                 <div class="course-details__info">
                     <h3 class="course-details__info__title">Course includes:</h3>
                     <ul class="course-details__info__list list-unstyled">
-                        <li><span>Level: </span> {{ course.level }}</li>
-                        <li><span>Duration: </span> {{ course.duration_months }} months</li>
-                        <li><span>Lessons: </span> {{ course.lessons }}</li>
-                        <li><span>Students: </span> {{ course.student_count }}</li>
-                        <li><span>Certifications: </span> {{ course.certification }}</li>
-                        <li><span>Language: </span> {{ course.language }}</li>
-                        <li><span>Next Batch: </span> {{ course.upcoming_batch }}</li>
-                        <li><span>Available Seats: </span> {{ course.seats_available }}</li>
+                        <li><span>Level: </span> {{ courses.level }}</li>
+                        <li><span>Duration: </span> {{ courses.duration_months }} months</li>
+                        <li><span>Lessons: </span> {{ courses.lessons }}</li>
+                        <li><span>Students: </span> {{ courses.student_count }}</li>
+                        <li><span>Certifications: </span> {{ courses.certification }}</li>
+                        <li><span>Language: </span> {{ courses.language }}</li>
+                        <li><span>Next Batch: </span> {{ courses.upcoming_batch }}</li>
+                        <li><span>Available Seats: </span> {{ courses.seats_available }}</li>
                     </ul>
 
-                    <div class="course-details__info__price">This course Fee ₹{{ course.course_fee }}</div>
+                    <div class="course-details__info__price">This course Fee ₹{{ courses.course_fee }}</div>
 
-                    {% if course.course_brochure %}
-                        <a href="{{ course.course_brochure.url }}" class="course-details__info__btn eduhive-btn" download>
+                    {% if courses.course_brochure %}
+                        <a href="{{ courses.course_brochure.url }}" class="course-details__info__btn eduhive-btn" download>
                             <span class="eduhive-btn__text">Download Brochure</span>
                             <span class="eduhive-btn__icon"><i class="icon-arrow-right"></i></span>
                         </a>

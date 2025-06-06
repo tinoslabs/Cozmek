@@ -86,8 +86,21 @@ class Gallery(models.Model):
     image = models.ImageField(upload_to='gallery_images/')    
     def __str__(self):
         return f"Gallery Image {self.id}"    
+
+    
+class EventRegistration(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField(blank=True, null=True)
+    phone = models.CharField(max_length=12, blank=True, null=True)
+    comments = models.TextField(null=True, blank=True)
+    event = models.ForeignKey('Event', on_delete=models.CASCADE, related_name='registrations')
+    
+    def __str__(self):
+        return self.name
+ 
     
 class Event(models.Model):
+    
     event_heading = models.CharField(max_length=100)
     event_details = models.TextField(null=True, blank=True)
     start_date = models.DateTimeField(null=True, blank=True)
@@ -96,7 +109,6 @@ class Event(models.Model):
     venue = models.CharField(max_length=255, null=True, blank=True)
     main_image = models.ImageField(upload_to='images/')
     location = models.CharField(max_length=500, null=True, blank=True)
-    
-    
+          
     def __str__(self):
         return self.event_heading

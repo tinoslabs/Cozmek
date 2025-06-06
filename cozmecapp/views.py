@@ -5,8 +5,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_protect
 
-from .models import  CourseModel, Testimonial, TeamMembers, Partners, Blog, Service, OfferEnquiry, Event, Gallery
-from .forms import  CourseForm, TestimonialForm, TeamForm, PartnersForm, BlogForm, ServiceForm, OfferEnquiryForm, EventForm, GalleryForm
+from .models import  CourseModel, Testimonial, TeamMembers, Partners, Blog, Service, OfferEnquiry, Event, Gallery, EventRegistration
+from .forms import  CourseForm, TestimonialForm, TeamForm, PartnersForm, BlogForm, ServiceForm, OfferEnquiryForm, EventForm, GalleryForm, EventRegistrationForm
 # Create your views here.
 from django.contrib import messages
 
@@ -458,9 +458,9 @@ def blog_details(request, id):
 
 def course_details(request, id):
     gallery = Gallery.objects.all().order_by('-id')
-    course = get_object_or_404(CourseModel, id=id)
+    courses = get_object_or_404(CourseModel, id=id)
     course = CourseModel.objects.all().order_by('-id')
-    return render(request,'courses_details.html', {'course': course,'gallery': gallery,'course': course})
+    return render(request,'courses_details.html', {'courses': courses,'gallery': gallery,'course': course})
 
 
 def events(request):

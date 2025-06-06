@@ -1,5 +1,5 @@
 from django import forms
-from .models import CourseModel, Testimonial, TeamMembers, Partners, Blog, Service, OfferEnquiry, Event, Gallery
+from .models import CourseModel, Testimonial, TeamMembers, Partners, Blog, Service, OfferEnquiry, Event, Gallery, EventRegistration
 
 
 class CourseForm(forms.ModelForm):
@@ -50,4 +50,9 @@ class OfferEnquiryForm(forms.ModelForm):
 class EventForm(forms.ModelForm):
     class Meta:
         model = Event
+        fields = '__all__'
+        
+class EventRegistrationForm(forms.ModelForm):
+    class Meta:
+        model = EventRegistration
         fields = '__all__'
