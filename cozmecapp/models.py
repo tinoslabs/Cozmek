@@ -92,7 +92,7 @@ class EventRegistration(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField(blank=True, null=True)
     phone = models.CharField(max_length=12, blank=True, null=True)
-    comments = models.TextField(null=True, blank=True)
+   
     event = models.ForeignKey('Event', on_delete=models.CASCADE, related_name='registrations')
     
     def __str__(self):

@@ -209,6 +209,22 @@
         </div>
       </li>
 
+
+      <li class="nav-item nav-category">Events</li>
+      <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="collapse" href="#ui-event" aria-expanded="false" aria-controls="ui-basic">
+          <i class="menu-icon mdi mdi-floor-plan"></i>
+          <span class="menu-title">Events</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="ui-event">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href="{% url 'add_event' %}">Add Event</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{% url 'view_event' %}">View Event</a></li>         
+          </ul>
+        </div>
+      </li>
+
      <li class="nav-item nav-category">Gallery</li>
     <li class="nav-item">
       <a class="nav-link" data-bs-toggle="collapse" href="#certificate" aria-expanded="false" aria-controls="ui-basic">
@@ -223,6 +239,22 @@
         </ul>
       </div>
     </li>
+
+    <li class="nav-item nav-category">Event Registration</li>
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="collapse" href="#ui-reg" aria-expanded="false" aria-controls="ui-basic">
+        <i class="menu-icon mdi mdi-floor-plan"></i>
+        <span class="menu-title">Event Registration</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="ui-reg">
+        <ul class="nav flex-column sub-menu">
+          
+          <li class="nav-item"> <a class="nav-link" href="registration_list">Registration List</a></li>         
+        </ul>
+      </div>
+    </li>
+
     <li class="nav-item nav-category">Contact Details</li>
     <li class="nav-item">
       <a class="nav-link" data-bs-toggle="collapse" href="#ui-con" aria-expanded="false" aria-controls="ui-basic">

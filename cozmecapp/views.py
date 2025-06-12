@@ -470,9 +470,48 @@ def events(request):
     return render(request, 'events.html', {'events': events,'gallery': gallery,'course': course})
 
 
+# def event_details(request, id):
+#     gallery = Gallery.objects.all().order_by('-id')
+#     events = get_object_or_404(Event, id=id)
+#     course = CourseModel.objects.all().order_by('-id')
+#     return render(request, 'event-details.html', {'events': events, 'gallery': gallery,'course': course})
+
 def event_details(request, id):
     gallery = Gallery.objects.all().order_by('-id')
     events = get_object_or_404(Event, id=id)
     course = CourseModel.objects.all().order_by('-id')
-    return render(request, 'event-details.html', {'events': events, 'gallery': gallery,'course': course})
 
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        phone = request.POST.get('phone')
+       
+
+        EventRegistration.objects.create(
+            name=name,
+            email=email,
+            phone=phone,
+           
+            event=events
+        )
+
+        # Redirect or display success message
+        return redirect('event_details', id=id)
+
+    return render(request, 'event-details.html', {
+        'events': events,
+        'gallery': gallery,
+        'course': course
+    })
+
+
+def registration_list(request):
+    list = EventRegistration.objects.all().order_by('-id')
+    return render(request,'admin_pages/registration_list.html',{'list':list})
+
+
+@login_required(login_url='user_login')
+def delete_list(request,id):
+    list = EventRegistration.objects.get(id=id)
+    list.delete()
+    return redirect('registration_list')

@@ -115,8 +115,8 @@
                     </div><!-- /.col-xl-4 col-lg-5 -->
 
                     <div class="become-instructor__form-box" id="contact">
-                            <h3 class="become-instructor__form-box__title">Apply for Registration</h3>
-                            <form class="become-instructor__form contact-form-validated form-one" action="inc/sendemail.php">
+                            <h3 class="become-instructor__form-box__title">Event Registration</h3>
+                            {% comment %} <form class="become-instructor__form contact-form-validated form-one" action="inc/sendemail.php">
                                 <div class="form-one__group">
                                     <div class="form-one__control form-one__control--full">
                                         <input type="text" name="name" placeholder="Full Name">
@@ -137,7 +137,35 @@
                                         </button>
                                     </div><!-- /.form-one__control -->
                                 </div><!-- /.form-one__group -->
-                            </form><!-- /.become-instructor__form -->
+                            </form><!-- /.become-instructor__form --> {% endcomment %}
+                            <form method="post" class="become-instructor__form contact-form-validated form-one" action="">
+                                {% csrf_token %}
+                                <div class="form-one__group">
+
+                                    <div class="form-one__control form-one__control--full">
+                                        <input type="text" name="name" placeholder="Full Name" required>
+                                    </div>
+
+                                    <div class="form-one__control form-one__control--full">
+                                        <input type="email" name="email" placeholder="Email Address" required>
+                                    </div>
+
+                                    <div class="form-one__control form-one__control--full">
+                                        <input type="tel" name="phone" placeholder="Phone Number" required>
+                                    </div>
+
+                                    {% comment %} <div class="form-one__control form-one__control--full">
+                                        <textarea name="comments" placeholder="Comment"></textarea>
+                                    </div> {% endcomment %}
+
+                                    <div class="form-one__control form-one__control--full">
+                                        <button type="submit" class="eduhive-btn">
+                                            <span>Submit</span>
+                                            <span class="eduhive-btn__icon"><i class="icon-right-up"></i></span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
                             <div class="result"></div>
                         </div>
                     </div><!-- /.row gutter-y-40 -->
