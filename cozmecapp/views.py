@@ -397,12 +397,12 @@ def view_gallery(request):
 def update_gallery(request,id):
     gallery = get_object_or_404(Gallery, id=id)
     if request.method == 'POST':
-        form = TeamForm(request.POST, request.FILES, instance=gallery)
+        form = GalleryForm(request.POST, request.FILES, instance=gallery)
         if form.is_valid():
             form.save()
             return redirect('view_gallery')
     else:
-        form = TeamForm(instance=gallery)
+        form = GalleryForm(instance=gallery)
     return render(request, 'admin_pages/update_gallery.html', {'form': form, 'gallery': gallery})
 
 
