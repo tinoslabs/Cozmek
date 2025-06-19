@@ -67,6 +67,8 @@ urlpatterns = [
     
     path('registration_list', views.registration_list, name='registration_list'),
     path('delete_list/<int:id>/', views.delete_list, name='delete_list'),
+    
+    path('instructor_details', views.instructor_details, name='instructor_details'),
      
     path('ckeditor/upload/', ckeditor_views.upload, name='ckeditor_upload'),
     path('ckeditor/browse/', ckeditor_views.browse, name='ckeditor_browse'),

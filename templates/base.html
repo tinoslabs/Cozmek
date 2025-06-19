@@ -63,6 +63,13 @@
                             </span>
                             <a href="tel:+8921216142">+91 89212 16142</a>
                         </li>
+
+                        <li>
+                            <span class="topbar__info__icon">
+                                <i class="icon-telephone"></i>
+                            </span>
+                            <a href="tel:+8606459768">+91 86064 59768</a>
+                        </li>
                         <li>
                             <span class="topbar__info__icon">
                                 <i class="icon-location"></i>
@@ -248,23 +255,23 @@
                             <h2 class="footer-widget__title">Quick Link</h2><!-- /.footer-widget__title -->
                             <ul class="list-unstyled footer-widget__links">
                                 <li>
-                                    <a href="">
+                                    <a href="{% url 'index' %}">
                                         <span class="footer-widget__links__icon">
                                             <i class="icon-double-arrow"></i>
                                         </span>
-                                        About Eduhive
+                                        Home
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="">
+                                    <a href="{% url 'about' %}">
                                         <span class="footer-widget__links__icon">
                                             <i class="icon-double-arrow"></i>
                                         </span>
-                                        Our Courses
+                                        About
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="">
+                                    <a href="{% url 'instructors' %}">
                                         <span class="footer-widget__links__icon">
                                             <i class="icon-double-arrow"></i>
                                         </span>
@@ -272,21 +279,14 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="">
+                                    <a href="{% url 'courses' %}">
                                         <span class="footer-widget__links__icon">
                                             <i class="icon-double-arrow"></i>
                                         </span>
-                                        Instructor Details
+                                        Courses
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="">
-                                        <span class="footer-widget__links__icon">
-                                            <i class="icon-double-arrow"></i>
-                                        </span>
-                                        Contact Us
-                                    </a>
-                                </li>
+                               
                             </ul><!-- /.list-unstyled footer-widget__links -->
                         </div><!-- /.footer-widget -->
                     </div><!-- /.col-xl-3 col-md-4 col-sm-6 -->

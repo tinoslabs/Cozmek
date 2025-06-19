@@ -3,21 +3,7 @@
 
 {% block content %}
 
-        {% comment %} <section class="page-header">
-            <div class="container">
-                <div class="page-header__content">
-                    <ul class="eduhive-breadcrumb list-unstyled">
-                        <li><span class="eduhive-breadcrumb__icon"><i class="icon-home"></i></span><a href="{% url 'index' %}">Home</a></li>
-                        <li><span>Contact Us</span></li>
-                    </ul>
-                    <h2 class="page-header__title">About us</h2>
-                </div>
-            </div>
-             <img src="{% static 'assets/images/shapes/page-header-shape-1.png' %}" alt="shape" class="page-header__shape-one">
-            <img src="{% static 'assets/images/shapes/page-header-shape-2.png' %}" alt="shape" class="page-header__shape-two">
-            <div class="page-header__shape-three"></div>
-            <div class="page-header__shape-four"></div>
-        </section> {% endcomment %}
+        
 
         <section class="cta-one">
             <div class="container">
@@ -49,8 +35,8 @@
                 <div class="row gutter-y-60">
                     <div class="col-lg-6 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="00ms">
                         <div class="about-two__image">
-                            <img src="{% static 'assets/images/about-2-1.jpg' %}" alt="about image" class="about-two__image__one">
-                            <img src="{% static 'assets/images/about-2-2.jpg' %}" alt="about image" class="about-two__image__two">
+                            <img src="{% static 'assets/images/ab-2.jpg' %}" alt="about image" class="about-two__image__one">
+                            {% comment %} <img src="{% static 'assets/images/about-2-2.jpg' %}" alt="about image" class="about-two__image__two"> {% endcomment %}
                             <img src="{% static 'assets/images/shapes/about-shape-2-1.png' %}" alt="shape" class="about-two__image__shape-one">
                             <div class="about-two__image__shape-box"></div><!-- /.about-two__image__shape-box -->
                         </div><!-- /.about-two__image -->

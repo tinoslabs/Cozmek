@@ -355,6 +355,8 @@ def service_details(request, service_id):
         'service': service,
        
     })
+    
+
 
 def services(request):
     service = Service.objects.all().order_by('-id')
@@ -504,6 +506,18 @@ def event_details(request, id):
         'course': course
     })
 
+
+# def instructor_details(request, id):
+#     gallery = Gallery.objects.all().order_by('-id')
+#     instructor = get_object_or_404(TeamMembers, id=id)
+#     course = CourseModel.objects.all().order_by('-id')
+#     return render(request, 'instructor-details.html', {'instructor': instructor,'gallery': gallery,'course': course})
+
+def instructor_details(request):
+    gallery = Gallery.objects.all().order_by('-id')
+    instructors = TeamMembers.objects.all().order_by('-id')
+    course = CourseModel.objects.all().order_by('-id')
+    return render(request, 'instructor-details.html', {'instructors': instructors, 'gallery': gallery, 'course': course})
 
 def registration_list(request):
     list = EventRegistration.objects.all().order_by('-id')
