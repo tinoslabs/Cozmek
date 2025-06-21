@@ -80,7 +80,7 @@
                         <li><span>Available Seats: </span> {{ courses.seats_available }}</li>
                     </ul>
 
-                    <div class="course-details__info__price">This course Fee ₹{{ courses.course_fee }}</div>
+                    {% comment %} <div class="course-details__info__price">This course Fee ₹{{ courses.course_fee }}</div> {% endcomment %}
 
                     {% if courses.course_brochure %}
                         <a href="{{ courses.course_brochure.url }}" class="course-details__info__btn eduhive-btn" download>
